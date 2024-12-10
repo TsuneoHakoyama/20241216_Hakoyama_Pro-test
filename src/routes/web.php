@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ShopController::class, 'index'])->name('root');
+Route::post('/search', [ShopController::class, 'search']);
+Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
+
+Route::post('/booking', [BookingController::class, 'booking']);
+

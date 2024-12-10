@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks</title>
+    <title>Registration_complete</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/book-complete.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/thanks.css') }}">
 </head>
 
 <body>
@@ -25,18 +25,21 @@
         <nav class="menu" id="menu">
             <ul>
                 <li><a href="{{ route('shop-all') }}">Home</a></li>
-                <li><a href="{{ route('logout') }}">Logout</a></li>
-                <li><a href="{{ route('mypage') }}">Mypage</a></li>
+                <li><a href="{{ route('register') }}">Registration</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </nav>
 
         <!-- Thanks message -->
         <div class="content">
             <div class="message">
-                <p>ご予約ありがとうございます</p>
+                <p>会員登録ありがとうございます</p>
+            </div>
+            <div class="sent-confirm">
+                <p>登録されたメールアドレスに確認メールを送信しました</p>
             </div>
             <div class="button">
-                <a href="{{ route('back-home') }}">戻る</a>
+                <a href="{{ route('login') }}">ログインする</a>
             </div>
         </div>
     </main>
