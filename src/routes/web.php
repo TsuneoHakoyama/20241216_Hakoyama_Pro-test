@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,6 @@ Route::post('/search', [ShopController::class, 'search']);
 Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
 
 Route::post('/booking', [BookingController::class, 'booking']);
+Route::get('/detail/review/{id}', [ReviewController::class, 'create']);
+Route::post('/detail/review/{id}', [ReviewController::class, 'record']);
 

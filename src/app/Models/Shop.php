@@ -19,14 +19,14 @@ class Shop extends Model
         'image',
     ];
 
-    public function genres(): BelongsTo
+    public function genre(): BelongsTo
     {
-        return $this->belongsTo(Genre::class, 'genre_id');
+        return $this->belongsTo(Genre::class);
     }
 
-    public function prefectures(): BelongsTo
+    public function prefecture(): BelongsTo
     {
-        return $this->belongsTo(Prefecture::class, 'prefecture_id');
+        return $this->belongsTo(Prefecture::class);
     }
 
     public function favorites(): HasMany
@@ -37,5 +37,10 @@ class Shop extends Model
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 }

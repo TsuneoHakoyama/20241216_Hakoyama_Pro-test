@@ -15,9 +15,14 @@ class ShopController extends Controller
     {
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-        $shops = Shop::with(['genres', 'prefectures', 'favorites' => function ($query) {
-            $query->where('user_id', Auth::id());
-        }])->get();
+
+        if(Auth::check()) {
+            $shops = Shop::with(['genre', 'prefecture', 'favorites' => function ($query) {
+                $query->where('user_id', Auth::id());
+            }])->get();
+        }
+
+        $shops = Shop::with(['genre', 'prefecture'])->get();
 
         return view('index', compact('shops', 'prefectures', 'genres'));
     }
@@ -54,9 +59,13 @@ class ShopController extends Controller
 
     public function detail($shop_id)
     {
-        $shop = Shop::find($shop_id)->with('prefectures', 'genres')->first();
+
+        $shop = Shop::where('id', $shop_id)
+                     ->with('prefecture', 'genre', 'reviews')
+                     ->first();
+
         $today = Carbon::now()->toDateString();
 
-        return view('detail', compact("shop", "today"));
+        return view('detail', compact('shop', 'today'));
     }
 }

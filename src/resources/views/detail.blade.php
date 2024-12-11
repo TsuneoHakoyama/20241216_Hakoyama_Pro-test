@@ -27,13 +27,22 @@
                         <a href="#">Rese</a>
                     </div>
                     <nav class="menu" id="menu">
+                        @if(Auth::check())
                         <ul>
                             <li><a href="{{ route('root') }}">Home</a></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>
                             <li><a href="{{ '/mypage' }}">Mypage</a></li>
                         </ul>
+                        @else
+                        <ul>
+                            <li><a href="{{ route('root') }}">Home</a></li>
+                            <li><a href="{{ '/register' }}">Registration</a></li>
+                            <li><a href="{{ '/login' }}">Login</a></li>
+                        </ul>
+                        @endif
                     </nav>
                 </div>
+
                 <div class="shop-info">
                     <div class="back-btn">
                         <a href="{{ route('root') }}">&lt;</a>
@@ -44,15 +53,18 @@
                 </div>
                 <div class="shop-card">
                     <div class="shop-image">
-                        <img src="{{ $shop->image }}" alt="店舗画像">
+                        <img src="{{ asset($shop->image) }}" alt="店舗画像">
                     </div>
                     <div class="shop-tag">
-                        <div class="area-tag">#{{ $shop->prefectures->name }}</div>
-                        <div class="genre-tag">#{{ $shop->genres->name }}</div>
+                        <div class="area-tag">#{{ $shop->prefecture->name }}</div>
+                        <div class="genre-tag">#{{ $shop->genre->name }}</div>
                     </div>
                     <div class="introduction">
                         <p>{{ $shop->description }}</p>
                     </div>
+                </div>
+                <div class="review-link">
+                    <a href="{{ route('review', ['id' => $shop->id]) }}">口コミを投稿する</a>
                 </div>
             </div>
 
@@ -100,8 +112,8 @@
                             </select>
                         </div>
                         <div>
-                            @if($errors->has('people'))
-                            {{ $errors->first('people') }}
+                            @if($errors->has('number'))
+                            {{ $errors->first('number') }}
                             @endif
                         </div>
                     </div>

@@ -27,11 +27,19 @@
                     <a href="#">Rese</a>
                 </div>
                 <nav class="menu" id="menu">
+                    @if(Auth::check())
                     <ul>
                         <li><a href="{{ route('root') }}">Home</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>
                         <li><a href="{{ '/mypage' }}">Mypage</a></li>
                     </ul>
+                    @else
+                    <ul>
+                        <li><a href="{{ route('root') }}">Home</a></li>
+                        <li><a href="{{ '/register' }}">Registration</a></li>
+                        <li><a href="{{ '/login' }}">Login</a></li>
+                    </ul>
+                    @endif
                 </nav>
             </div>
             <form action="/search" method="post" class="search-box">
@@ -66,20 +74,18 @@
             </form>
         </div>
 
-        </div>
-
         <div class="main-content">
             <div class="grid">
                 @foreach ($shops as $shop)
                 <div class="shop-card">
                     <div class="shop-image">
-                        <img src="{{ $shop->image }}" alt="店舗画像">
+                        <img src="{{ asset($shop->image) }}" alt="店舗画像">
                     </div>
                     <div class="shop-info">
                         <div class="shop-name">{{ $shop->name }}</div>
                         <div class="shop-tag">
-                            <div class="area-tag">#{{ $shop->prefectures->name }}</div>
-                            <div class="genre-tag">#{{ $shop->genres->name }}</div>
+                            <div class="area-tag">#{{ $shop->prefecture->name }}</div>
+                            <div class="genre-tag">#{{ $shop->genre->name }}</div>
                         </div>
                         <div class="more-info">
                             <div class="for-detail">
