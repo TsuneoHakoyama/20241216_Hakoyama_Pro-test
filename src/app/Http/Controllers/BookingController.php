@@ -9,25 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-    public function reservation(BookingRequest $request)
+    public function booking(BookingRequest $request)
     {
-        if ($request->input('back') == 'back') {
-            $shop_id = $request->input('shop_id');
-            return redirect()->route('detail', ['id' => $shop_id]);
-        }
-
         $request['user_id'] = Auth::id();
-        $confirm = $request->only([
+        $booking = $request->only([
             'shop_id',
             'user_id',
             'date',
             'time',
-            'people'
+            'number'
         ]);
 
-        Booking::create($confirm);
+        Booking::create($booking);
 
-        return view('reservation-complete');
+        return view('booking');
     }
 
     public function cancel(Request $request)

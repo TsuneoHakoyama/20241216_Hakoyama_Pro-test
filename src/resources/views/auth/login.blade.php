@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
@@ -26,7 +26,7 @@
         </div>
         <nav class="menu" id="menu">
             <ul>
-                <li><a href="{{ route('shop-all') }}">Home</a></li>
+                <li><a href="{{ route('root') }}">Home</a></li>
                 <li><a href="{{ route('register') }}">Registration</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
             </ul>

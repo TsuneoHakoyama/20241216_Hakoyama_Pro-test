@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks</title>
-    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/book-complete.css') }}">
+    <title>予約完了</title>
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/booking.css') }}">
 </head>
 
 <body>
@@ -24,9 +24,9 @@
         </div>
         <nav class="menu" id="menu">
             <ul>
-                <li><a href="{{ route('shop-all') }}">Home</a></li>
+                <li><a href="{{ route('root') }}">Home</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
-                <li><a href="{{ route('mypage') }}">Mypage</a></li>
+                <li><a href="{{ '/mypage' }}">Mypage</a></li>
             </ul>
         </nav>
 
@@ -36,13 +36,12 @@
                 <p>ご予約ありがとうございます</p>
             </div>
             <div class="button">
-                <a href="{{ route('back-home') }}">戻る</a>
+                <a href="{{ route('root') }}">戻る</a>
             </div>
         </div>
     </main>
 
     <script src="{{ asset('js/hamburger.js') }}"></script>
-    <script src="{{ asset('js/confirm.js') }}"></script>
 </body>
 
 </html>

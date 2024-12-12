@@ -1,0 +1,151 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* メニューボタンとタイトルロゴ */
+.title-logo {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding: 50px 0;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: relative;
+    background: #005fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    z-index: 9999;
+}
+
+.burger span {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.burger span:nth-of-type(1) {
+    top: 15px;
+    width: 30%;
+}
+
+.burger span:nth-of-type(2) {
+    top: 23px;
+    width: 60%;
+}
+
+.burger span:nth-of-type(3) {
+    top: 31px;
+    width: 20%;
+}
+
+.burger.is-active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 30%;
+}
+
+.burger.is-active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.burger.burger.is-active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 30%;
+}
+
+.logo a {
+    margin-left: 20px;
+    color: #005fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #005fff;
+    transition: .3s;
+}
+
+.menu ul {
+    position: absolute;
+    z-index: 999;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #005fff;
+}
+
+.menu.is-active {
+    opacity: 1;
+    z-index: 999;
+}
+
+/* Thanks message */
+.content {
+    margin: 80px auto;
+    padding: 50px 20px;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    text-align: center;
+}
+
+.message {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sent-confirm {
+    font-size: 14px;
+    color: #ff0000;
+}
+
+.button {
+    margin-top: 40px;
+}
+
+.button a {
+    margin: 0px auto;
+    width: 30%;
+    background-color: #005fff;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

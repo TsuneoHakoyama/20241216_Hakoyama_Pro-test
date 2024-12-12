@@ -1,0 +1,195 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* メニューボタンとタイトルロゴ */
+.title-logo {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0 0;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: relative;
+    background: #005fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    z-index: 9999;
+}
+
+.burger span {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.burger span:nth-of-type(1) {
+    top: 15px;
+    width: 30%;
+}
+
+.burger span:nth-of-type(2) {
+    top: 23px;
+    width: 60%;
+}
+
+.burger span:nth-of-type(3) {
+    top: 31px;
+    width: 20%;
+}
+
+.burger.is-active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 30%;
+}
+
+.burger.is-active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.burger.burger.is-active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 30%;
+}
+
+.logo a {
+    margin-left: 20px;
+    color: #005fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #005fff;
+    transition: .3s;
+}
+
+.menu ul {
+    position: absolute;
+    z-index: 999;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #005fff;
+}
+
+.menu.is-active {
+    opacity: 1;
+    z-index: 999;
+}
+
+/* ログインフォーム */
+.login-window {
+    margin: 150px auto;
+    width: 500px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+}
+
+.title-area {
+    border-radius: 5px 5px 0 0;
+}
+
+.title-area p {
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    background: #005fff;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.input-form {
+    display: grid;
+    text-align: center;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 16px;
+}
+
+.input__email {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.email {
+    margin: 10px auto;
+    padding: 15px;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.input__password {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.password {
+    margin: 10px auto;
+    padding: 15px;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.submit-button {
+    display: inline-block;
+    width: 35%;
+    margin-left: 315px;
+    padding: 20px;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #005fff;
+    border: none;
+    border-radius: 4px;
+}

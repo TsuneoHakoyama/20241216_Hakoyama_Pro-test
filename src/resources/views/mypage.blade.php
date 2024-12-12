@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My_page</title>
-    <link rel="stylesheet" href="css/sanitize.css">
+    <title>マイページ</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/mypage.css">
 </head>

@@ -72,7 +72,9 @@ class AuthController extends Controller
 
         event(new Registered($user = $creator->create($request->all())));
 
-        return redirect('/email/verify');
+        $this->guard->login($user);
+
+        return view('auth/verify-email');
     }
 
     /**

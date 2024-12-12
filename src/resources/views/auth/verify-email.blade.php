@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
+    <title>認証メール送信</title>
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
 </head>
 
 <body>
@@ -23,10 +24,10 @@
                         @endif
 
                         {{ __('ご登録いただいたアドレスに確認用のリンクをお送りしました。') }}
-                        {{ __('もし確認用メールが送信されていない場合は、"再送信する"をクリックしてください。') }},
+                        {{ __('もし確認用メールが送信されていない場合は、"再送信する"をクリックしてください。') }}
                         <form class="d-inline" method="POST" action="{{ route('verification.send') }}">
                             @csrf
-                            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('確認メールを再送信する') }}</button>.
+                            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('確認メールを再送信する') }}</button>
                         </form>
                     </div>
                 </div>
