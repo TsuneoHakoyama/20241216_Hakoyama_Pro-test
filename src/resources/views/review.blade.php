@@ -14,7 +14,7 @@
 
 <body>
     <div class="main-content">
-        <form action="/review" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
+        <form action="{{ route('record', ['id' => $shop->id]) }} " method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
             @csrf
             <div class="main-board">
                 <div class="shop-detail">
@@ -74,15 +74,15 @@
                     </div>
                     <div class="form-rating">
                         <input class="form-rating__input" id="star5" name="rating" type="radio" value="5">
-                        <label class="form-rating__label" for="star5"><i class="fa-solid fa-star"></i></label>
+                        <label class="form-rating__label" for="star5">★</label>
                         <input class="form-rating__input" id="star4" name="rating" type="radio" value="4">
-                        <label class="form-rating__label" for="star4"><i class="fa-solid fa-star"></i></label>
+                        <label class="form-rating__label" for="star4">★</label>
                         <input class="form-rating__input" id="star3" name="rating" type="radio" value="3">
-                        <label class="form-rating__label" for="star3"><i class="fa-solid fa-star"></i></label>
+                        <label class="form-rating__label" for="star3">★</label>
                         <input class="form-rating__input" id="star2" name="rating" type="radio" value="2">
-                        <label class="form-rating__label" for="star2"><i class="fa-solid fa-star"></i></label>
+                        <label class="form-rating__label" for="star2">★</label>
                         <input class="form-rating__input" id="star1" name="rating" type="radio" value="1">
-                        <label class="form-rating__label" for="star1"><i class="fa-solid fa-star"></i></label>
+                        <label class="form-rating__label" for="star1">★</label>
                     </div>
                     <div class="error-message">
                         @if($errors->has('rating'))

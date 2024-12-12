@@ -37,7 +37,7 @@
                         <ul>
                             <li><a href="{{ route('root') }}">Home</a></li>
                             <li><a href="{{ route('register') }}">Registration</a></li>
-                            <li><a href="{{ rout('login') }}">Login</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                         </ul>
                         @endif
                     </nav>
@@ -63,9 +63,42 @@
                         <p>{{ $shop->description }}</p>
                     </div>
                 </div>
+                @if(Auth::check())
+                @if($booking_status->isNotEmpty())
+                @if(isset($review_status))
+                <div class="all-review">
+                    <form action="" method="get">
+                        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                        <button type="submit">全ての口コミ情報</button>
+                    </form>
+                </div>
+                <div class="my-review">
+                    <div class="edit-link">
+                        <form action="" method="get">
+                            @csrf
+                            <input type="hidden" name="review_id" value="{{ $review_status->id }}">
+                            <button type="submit">口コミを編集</button>
+                        </form>
+                        <form action="" method="post">
+                            @csrf
+                            <input type="hidden" name="review_id" value="{{ $review_status->id }}">
+                            <button type="submit">口コミを削除</button>
+                        </form>
+                    </div>
+                    <div class="rating">
+                        <p>
+                            <span class="star5_rating" data-rate="{{ $review_status->rating }}"></span>
+                        </p>
+                    </div>
+                    <div class="comment">{{ $review_status->comment }}</div>
+                </div>
+                @else
                 <div class="review-link">
                     <a href="{{ route('review', ['id' => $shop->id]) }}">口コミを投稿する</a>
                 </div>
+                @endif
+                @endif
+                @endif
             </div>
 
             <div class="booking-form">

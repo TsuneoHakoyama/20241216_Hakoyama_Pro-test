@@ -47,5 +47,6 @@ Route::get('/logout', [AuthController::class, 'destroy']);
 
 Route::post('/booking', [BookingController::class, 'booking']);
 Route::get('/detail/review/{id}', [ReviewController::class, 'create'])->name('review');
-Route::post('/detail/review/{id}', [ReviewController::class, 'record']);
+Route::post('/detail/review/{id}', [ReviewController::class, 'record'])->name('record');
+
 

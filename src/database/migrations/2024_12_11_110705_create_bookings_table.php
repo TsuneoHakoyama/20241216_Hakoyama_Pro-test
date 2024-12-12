@@ -21,6 +21,7 @@ class CreateBookingsTable extends Migration
             $table->time('time');
             $table->integer('number');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

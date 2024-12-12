@@ -18,7 +18,7 @@ class MypageController extends Controller
             $query->where('user_id', Auth::id());
         }])->get();
 
-        return view('my-page', compact('my_bookings', 'my_favorites'));
+        return view('mypage', compact('my_bookings', 'my_favorites'));
     }
 
     public function destroy(Request $request)

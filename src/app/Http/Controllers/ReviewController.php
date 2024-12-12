@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -32,11 +32,8 @@ class ReviewController extends Controller
             $param['image'] = 'storage/' . $dir . '/' . $file_name;
         }
 
-        $last_inserted_id = DB::table('reviews')->insertGetId($param);
+        Review::create($param);
 
-        $item = Shop::find($last_inserted_id);
-        $item->categories()->attach($request->category_id);
-
-        return view('detail');
+        return redirect()->route('detail', ['id' => $request->shop_id]);
     }
 }

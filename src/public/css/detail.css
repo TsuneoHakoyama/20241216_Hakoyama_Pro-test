@@ -7,7 +7,7 @@
     width: 80%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .shop-detail {
@@ -137,7 +137,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .back-btn {
@@ -169,21 +169,100 @@
     width: 100%;
 }
 
-.shop-tag {
-    margin-top: 20px;
-}
-
 .area-tag {
     display: inline-block;
+    font-size: 16px;
 }
 
 .genre-tag {
     display: inline-block;
+    font-size: 16px;
 }
 
 .introduction {
     width: 100%;
 }
+
+.introduction p {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+/* 店舗評価 */
+.all-review button {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #005fff;
+    color: #fff;
+    padding: 3px 30px;
+    border: #005fff;
+    cursor: pointer;
+}
+
+.edit-link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-link button {
+    margin: 0 0 0 10px;
+    border: none;
+    border-bottom: 1px solid #666;
+    cursor: pointer;
+}
+
+.rating p {
+    margin: 10px;
+}
+
+.star5_rating {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #CCCCCC;
+    /* グレーカラー 自由に設定化 */
+    /*font-size: 30px; フォントサイズ 自由に設定化 */
+}
+
+.star5_rating:before, .star5_rating:after {
+    content: '★★★★★';
+}
+
+.star5_rating:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #005fff;
+}
+
+.star5_rating[data-rate="5"]:after {
+    width: 100%;
+}
+
+.star5_rating[data-rate="4.5"]:after {
+    width: 90%;
+}
+
+.star5_rating[data-rate="3.5"]:after {
+    width: 70%;
+}
+
+.star5_rating[data-rate="2.5"]:after {
+    width: 50%;
+}
+
+.star5_rating[data-rate="1.5"]:after {
+    width: 30%;
+}
+
+.star5_rating[data-rate="0.5"]:after {
+    width: 10%;
+}
+
 
 /* 予約フォーム */
 .title p {
@@ -242,4 +321,6 @@
     color: #fff;
     border: none;
     padding: 10px 10px;
+    font-weight: bold;
+    cursor: pointer;
 }

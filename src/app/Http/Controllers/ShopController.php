@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Genre;
 use App\Models\Prefecture;
 use App\Models\Shop;
+use App\Models\Review;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,12 +61,23 @@ class ShopController extends Controller
 
     public function detail($shop_id)
     {
-
-        $shop = Shop::where('id', $shop_id)
-                     ->with('prefecture', 'genre', 'reviews')
-                     ->first();
-
         $today = Carbon::now()->toDateString();
+        $shop = Shop::where('id', $shop_id)
+                    ->with('prefecture', 'genre', 'reviews', 'bookings')
+                    ->first();
+
+        if(Auth::check()) {
+            $user_id = Auth::id();
+            $booking_status = Booking::where('shop_id', $shop_id)
+                                     ->where('user_id', $user_id)
+                                     ->whereDate('created_at', '<', $today)
+                                     ->get();
+            $review_status = Review::where('shop_id', $shop_id)
+                                     ->where('user_id', $user_id)
+                                     ->first();
+
+            return view('detail', compact(['shop', 'today', 'booking_status', 'review_status']));
+        }
 
         return view('detail', compact('shop', 'today'));
     }

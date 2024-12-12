@@ -16,7 +16,7 @@ class FavoriteController extends Controller
         $favorite->user_id = Auth::user()->id;
         $favorite->save();
 
-        return redirect()->route('shop-all', [$request->shop_id]);
+        return redirect()->route('root', [$request->shop_id]);
     }
 
     public function destroy(Request $request)
@@ -24,6 +24,6 @@ class FavoriteController extends Controller
         $shop = Shop::findOrFail($request->shop_id);
         $shop->favorites()->delete();
 
-        return redirect()->route('shop-all', [$request->shop_id]);
+        return redirect()->route('root', [$request->shop_id]);
     }
 }
