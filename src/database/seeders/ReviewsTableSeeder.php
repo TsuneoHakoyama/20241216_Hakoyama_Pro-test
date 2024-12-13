@@ -15,24 +15,10 @@ class ReviewsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'user_id' => 4,
-            'shop_id' => 2,
-            'rating' => 5,
-            'comment' => '静かで上品な雰囲気の中、希少部位をじっくりと堪能できました。',
-        ];
-        DB::table('reviews')->insert($param);
-        $param = [
             'user_id' => 1,
-            'shop_id' => 4,
-            'rating' => 5,
-            'comment' => '古民家の独特の雰囲気の中おいしいワインがいただけました。',
-        ];
-        DB::table('reviews')->insert($param);
-        $param = [
-            'user_id' => 7,
-            'shop_id' => 10,
-            'rating' => 5,
-            'comment' => 'ネタの大きさに大満足でした。',
+            'shop_id' => 2,
+            'rating' => 4,
+            'comment' => '静かで上品な雰囲気の中、希少部位をじっくりと堪能できました。',
         ];
         DB::table('reviews')->insert($param);
     }

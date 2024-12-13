@@ -46,7 +46,9 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/logout', [AuthController::class, 'destroy']);
 
 Route::post('/booking', [BookingController::class, 'booking']);
-Route::get('/detail/review/{id}', [ReviewController::class, 'create'])->name('review');
-Route::post('/detail/review/{id}', [ReviewController::class, 'record'])->name('record');
+Route::get('/detail/{id}/review', [ReviewController::class, 'create'])->name('review');
+Route::post('/detail/{id}/record', [ReviewController::class, 'record'])->name('record');
+Route::get('/detail/{id}/update', [ReviewController::class, 'update'])->name('update');
+Route::post('/detail/{id}/delete', [ReviewController::class, 'removeReview'])->name('remove');
 
 

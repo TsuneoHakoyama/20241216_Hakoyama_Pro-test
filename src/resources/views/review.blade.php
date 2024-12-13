@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>口コミ登録</title>
+    <title>口コミ入力</title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
@@ -14,30 +14,31 @@
 
 <body>
     <div class="main-content">
+        <div class="header__wrapper-title">
+            <div class="title-logo">
+                <button class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="#">Rese</a>
+            </div>
+            <nav class="menu" id="menu">
+                <ul>
+                    <li><a href="{{ route('root') }}">Home</a></li>
+                    <li><a href="{{ route('logout') }}">Logout</a></li>
+                    <li><a href="{{ '/mypage' }}">Mypage</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
         <form action="{{ route('record', ['id' => $shop->id]) }} " method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
             @csrf
             <div class="main-board">
                 <div class="shop-detail">
-                    <div class="header__wrapper-title">
-                        <div class="title-logo">
-                            <button class="burger" id="burger">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                        <div class="logo">
-                            <a href="#">Rese</a>
-                        </div>
-                        <nav class="menu" id="menu">
-                            <ul>
-                                <li><a href="{{ route('root') }}">Home</a></li>
-                                <li><a href="{{ route('logout') }}">Logout</a></li>
-                                <li><a href="{{ '/mypage' }}">Mypage</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-
                     <div class="introduction">
                         <div class="title">
                             <h2>今回のご利用はいかがでしたか？</h2>
@@ -73,15 +74,15 @@
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                     </div>
                     <div class="form-rating">
-                        <input class="form-rating__input" id="star5" name="rating" type="radio" value="5">
+                        <input class="form-rating__input" id="star5" name="rating" type="radio" value="5" {{ optional($my_review)->rating == '5' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star5">★</label>
-                        <input class="form-rating__input" id="star4" name="rating" type="radio" value="4">
+                        <input class="form-rating__input" id="star4" name="rating" type="radio" value="4" {{ optional($my_review)->rating == '4' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star4">★</label>
-                        <input class="form-rating__input" id="star3" name="rating" type="radio" value="3">
+                        <input class="form-rating__input" id="star3" name="rating" type="radio" value="3" {{ optional($my_review)->rating == '3' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star3">★</label>
-                        <input class="form-rating__input" id="star2" name="rating" type="radio" value="2">
+                        <input class="form-rating__input" id="star2" name="rating" type="radio" value="2" {{ optional($my_review)->rating == '2' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star2">★</label>
-                        <input class="form-rating__input" id="star1" name="rating" type="radio" value="1">
+                        <input class="form-rating__input" id="star1" name="rating" type="radio" value="1" {{ optional($my_review)->rating == '1' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star1">★</label>
                     </div>
                     <div class="error-message">
@@ -93,7 +94,8 @@
                         <h3>口コミを投稿</h3>
                     </div>
                     <div class="input-text">
-                        <textarea name="comment" id="" rows="10" cols="40"></textarea>
+                        <textarea name="comment" id="" rows="10" cols="40">{{ optional($my_review)->comment }}</textarea>
+                        <p>最大文字数</p>
                     </div>
                     <div class="error-message">
                         @if($errors->has('comment'))
@@ -107,7 +109,7 @@
                         <div class="image-card">
                             <div class="text__field">
                                 <label class="label" for="image">
-                                    <input type="file" name="image" id="image">ファイルを選択
+                                    <input type="file" name="image" id="image" value="{{ optional($my_review)->image }}">ファイルを選択
                                 </label>
                                 <p id="upload-file">またはドラッグアンドドロップ</p>
                             </div>
@@ -124,6 +126,9 @@
                 <button type="submit">口コミを投稿する</button>
             </div>
         </form>
+    </div>
+
+
     </div>
 
     <script src="{{ asset('js/hamburger.js') }}"></script>

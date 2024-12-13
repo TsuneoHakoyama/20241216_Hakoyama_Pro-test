@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-
 </head>
 
 <body>
@@ -74,12 +73,13 @@
                 </div>
                 <div class="my-review">
                     <div class="edit-link">
-                        <form action="" method="get">
+                        <form action="{{ route('update', ['id' => $shop->id]) }}" method="get">
                             @csrf
+                            <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                             <input type="hidden" name="review_id" value="{{ $review_status->id }}">
                             <button type="submit">口コミを編集</button>
                         </form>
-                        <form action="" method="post">
+                        <form action="{{ route('remove', ['id' => $shop->id]) }}" method="post">
                             @csrf
                             <input type="hidden" name="review_id" value="{{ $review_status->id }}">
                             <button type="submit">口コミを削除</button>

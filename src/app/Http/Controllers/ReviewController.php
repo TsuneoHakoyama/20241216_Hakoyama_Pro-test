@@ -32,8 +32,29 @@ class ReviewController extends Controller
             $param['image'] = 'storage/' . $dir . '/' . $file_name;
         }
 
-        Review::create($param);
+        $presence = Review::where('user_id', $user_id)
+                          ->where('shop_id', $request->shop_id)
+                          ->first();
+
+        is_null($presence) ? Review::create($param) : Review::find($presence->id)->update($param);
 
         return redirect()->route('detail', ['id' => $request->shop_id]);
+    }
+
+    public function update(Request $request)
+    {
+        $shop = Shop::where('id', $request->shop_id)
+            ->with('prefecture', 'genre')
+            ->first();
+        $my_review = Review::find($request->review_id);
+
+        return view('review', compact('shop', 'my_review'));
+    }
+
+    public function removeReview(Request $request)
+    {
+        Review::find($request->review_id)->delete();
+
+        return redirect()->back();
     }
 }
