@@ -139,7 +139,7 @@ body {
 }
 
 .select-area {
-    width: 4em;
+    width: 4rem;
 }
 
 .select-area select {
@@ -149,7 +149,7 @@ body {
 }
 
 .select-genre {
-    width: 5em;
+    width: 5rem;
 }
 
 .select-genre select {
@@ -159,13 +159,13 @@ body {
 }
 
 .glass-custom {
-    font-size: 0.8em;
+    font-size: 0.8rem;
     color: #ddd;
     padding: 5px;
 }
 
 .search-word {
-    width: 6em;
+    width: 6rem;
 
 }
 
@@ -267,4 +267,90 @@ body {
 .heart-active {
     font-size: 1.5em;
     color: #f00;
+}
+
+/* responsive design */
+@media screen and (max-width: 768px) {
+.main-content {
+    width: 90%;
+    margin: auto;
+}
+
+    .header {
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center;
+        list-style: none;
+        font-size: 12px;
+    }
+
+    .burger {
+        position: relative;
+        background: #005fff;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px #666;
+        z-index: 9999;
+    }
+
+    .burger span {
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        height: 2px;
+        border-radius: 2px;
+        background: #fff;
+    }
+
+    .burger span:nth-of-type(1) {
+        top: 7px;
+        width: 30%;
+    }
+
+    .burger span:nth-of-type(2) {
+        top: 15px;
+        width: 60%;
+    }
+
+    .burger span:nth-of-type(3) {
+        top: 23px;
+        width: 20%;
+    }
+
+    .burger.is-active span:nth-of-type(1) {
+        top: 7px;
+        left: 12px;
+        transform: translateY(6px) rotate(-135deg);
+        width: 30%;
+    }
+
+    .burger.is-active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .burger.burger.is-active span:nth-of-type(3) {
+        top: 19px;
+        left: 12px;
+        transform: translateY(-6px) rotate(135deg);
+        width: 30%;
+    }
+
+    .input-form {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: 30px auto;
+    }
+
+    .menu {
+        width: 120%;
+    }
 }

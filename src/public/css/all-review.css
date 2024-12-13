@@ -5,19 +5,20 @@
 
 .main-board {
     width: 80%;
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
 .shop-detail {
-    width: 47%;
+    width: 45%;
     background-color: #eee;
     border: none;
 }
 
-.review-form {
-    width: 47%;
+.review-view {
+    width: 45%;
 }
 
 /* メニューボタンとタイトルロゴ */
@@ -26,7 +27,6 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-
 }
 
 /* ハンバーガーメニュー */
@@ -132,8 +132,8 @@
 
 /*店舗情報*/
 .introduction {
-    margin: 100px 0;
-    padding: 0 80px 0 20px;
+    margin-top: 50px;
+    padding: 0 60px 0 20px;
     border-right: 1px solid #aaa;
 }
 
@@ -149,10 +149,8 @@
     border-radius: 5px 5px 0 0;
 }
 
-.shop-name {
-    margin: 10px 10px 0;
-    font-size: 16px;
-    font-weight: bold;
+.shop-name h2 {
+    margin: 0;
 }
 
 .shop-tag {
@@ -211,111 +209,79 @@
     color: #f00;
 }
 
-/*口コミ入力*/
-.form-rating {
-    align-items: center;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    margin: 30px 0 50px;
+/*口コミ一覧*/
+.review-card {
+    width: 100%;
+    padding: 10px 30px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px #666;
 }
 
-.form-rating__input {
-    display: none;
+.user-name {
+    margin-bottom: 5px;
 }
 
-.form-rating__label {
-    color: #ccc;
-    cursor: pointer;
-    font-size: 30px;
-    padding: 0 10px;
+.rating p {
+    margin: 10px 0;
+}
+
+.star5_rating {
     position: relative;
-    transition: color 0.3s;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #CCC;
+    font-size: 30px;
 }
 
-.form-rating__label:hover,
-.form-rating__label:hover~.form-rating__label,
-.form-rating__input:checked~.form-rating__label {
+.star5_rating:before, .star5_rating:after {
+    content: '★★★★★';
+}
+
+.star5_rating:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
     color: #005fff;
 }
 
-.title h3 {
-    margin-bottom: 0;
-}
-
-.input-text {
-    margin: 0 auto 50px;
-}
-
-.input-text textarea {
+.star5_rating[data-rate="5"]:after {
     width: 100%;
-    background-color: #eee;
-    border: 1px solid #aaa;
 }
 
-.input-text p {
-    margin-right: 0;
-    font-size: 12px;
+.star5_rating[data-rate="4"]:after {
+    width: 80%;
 }
 
-.input-image {
-    width: 100%;
-    margin: 0 auto 50px;
-    background-color: #fff;
+.star5_rating[data-rate="3"]:after {
+    width: 60%;
 }
 
-.input-image.highlight {
-    background-color: #f0f0f0;
+.star5_rating[data-rate="2"]:after {
+    width: 40%;
 }
 
-.image-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 15vh;
+.star5_rating[data-rate="1"]:after {
+    width: 20%;
 }
 
-.text__field {
-    text-align: center;
+.star5_rating[data-rate="0"]:after {
+    width: 0%;
 }
 
-.image-card input[type="file"] {
-    display: none;
-}
-
-.label {
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.image-card p {
-    margin: 0;
-    font-size: 14px;
-}
-
-.upload-image img {
-    margin: 10px;
-    object-fit: cover;
-}
-
-.submit {
-    text-align: center;
-}
-
-.submit button {
-    padding: 10px 80px;
-    background-color: #fff;
-    border: 1px solid #fff;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
+.comment {
+    margin: 10px auto;
 }
 
 /* Responsive design */
 @media screen and (max-width: 600px) {
     .main-board {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         flex-direction: column;
         justify-content: flex-start;
@@ -323,21 +289,16 @@
 
     .shop-detail {
         width: 100%;
-        background-color: #eee;
-        border: none;
     }
 
     .introduction {
-        margin: 0;
+        margin-top: 40px;
         padding: 0;
         border: none;
     }
 
-    .title {
-        font-size: 14px;
-    }
-
-    .review-form {
+    .review-view {
         width: 100%;
     }
+
 }

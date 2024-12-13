@@ -1,11 +1,11 @@
-.main-content {
+body {
     background-color: #eee;
-    padding: 50px 0 300px;
 }
 
 .main-board {
     width: 80%;
     margin: 0 auto;
+    padding: 50px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -18,12 +18,13 @@
 
 .booking-form {
     width: 45%;
+    margin: 80px auto;
     position: relative;
     background-color: #005fff;
     color: #fff;
     padding: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px #666;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 2px 0 4px #666;
 }
 
 /* メニューボタンとタイトルロゴ */
@@ -162,7 +163,7 @@
 .shop-card {
     width: 100%;
     background-color: #eee;
-    margin: 10px 0;
+    margin: 10px 0 50px;
 }
 
 .shop-image img {
@@ -189,9 +190,15 @@
 }
 
 /* 店舗評価 */
+
+.all-review {
+    border-bottom: 2px solid #666;
+    margin-bottom: 10px;
+}
+
 .all-review button {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     background-color: #005fff;
     color: #fff;
     padding: 3px 30px;
@@ -209,6 +216,11 @@
     border: none;
     border-bottom: 1px solid #666;
     cursor: pointer;
+}
+
+.my-review {
+    margin-bottom: 50px;
+    border-bottom: 2px solid #666;
 }
 
 .rating p {
@@ -288,13 +300,13 @@
 
 .confirm-window {
     background-color: #2C7CFF;
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 10px;
     border-radius: 5px;
 }
 
 .description {
-    width: 100%;
+    width: 60%;
     border-collapse: separate;
     border-spacing: 0 10px;
     font-size: 14px;
@@ -302,24 +314,46 @@
 
 .description th {
     text-align: left;
-    width: 60%;
 }
 
 .submit-btn {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -32px;
     background-color: #0000ff;
     width: 100%;
     text-align: center;
     border-radius: 0 0 5px 5px;
+    box-shadow: 2px 2px 4px #666;
 }
 
 .submit-btn button {
     background-color: #0000ff;
     color: #fff;
     border: none;
-    padding: 10px 10px;
+    padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 600px) {
+    .main-board {
+        width: 90%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .shop-detail {
+        width: 100%;
+        background-color: #eee;
+        border: none;
+    }
+
+    .booking-form {
+        width: 100%;
+    }
+
+
 }

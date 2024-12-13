@@ -139,6 +139,7 @@
 .content {
     margin: 0 auto;
     padding: 10px 20px;
+    text-align: right;
 }
 
 .input-form {
@@ -182,7 +183,6 @@
 .submit-button {
     display: inline-block;
     width: 35%;
-    margin-left: 315px;
     padding: 20px;
 }
 
@@ -193,4 +193,21 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .login-window {
+        margin: 20px auto;
+        width: 80%;
+        height: 350px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px #666;
+    }
+
+    .submit-button {
+        display: inline-block;
+        width: 100%;
+    }
 }

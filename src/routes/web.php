@@ -50,5 +50,6 @@ Route::get('/detail/{id}/review', [ReviewController::class, 'create'])->name('re
 Route::post('/detail/{id}/record', [ReviewController::class, 'record'])->name('record');
 Route::get('/detail/{id}/update', [ReviewController::class, 'update'])->name('update');
 Route::post('/detail/{id}/delete', [ReviewController::class, 'removeReview'])->name('remove');
+Route::get('/detail/{id}/all', [ReviewController::class, 'allReview'])->name('show.all');
 
 

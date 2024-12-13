@@ -14,8 +14,9 @@ class ReviewController extends Controller
         $shop = Shop::where('id', $shop_id)
                     ->with('prefecture', 'genre')
                     ->first();
+        $my_review = [];
 
-        return view('review', compact('shop'));
+        return view('review', compact('shop', 'my_review'));
     }
 
     public function record(Request $request)
@@ -56,5 +57,18 @@ class ReviewController extends Controller
         Review::find($request->review_id)->delete();
 
         return redirect()->back();
+    }
+
+    public function allReview($shop_id)
+    {
+
+        $shop = Shop::where('id', $shop_id)
+                      ->with('prefecture', 'genre')
+                      ->first();
+        $reviews = Review::where('shop_id', $shop_id)
+                         ->with('user')
+                         ->get();
+
+        return view('all-review', compact('shop', 'reviews'));
     }
 }

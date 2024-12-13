@@ -66,8 +66,8 @@
                 @if($booking_status->isNotEmpty())
                 @if(isset($review_status))
                 <div class="all-review">
-                    <form action="" method="get">
-                        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                    <form action="{{ route('show.all', ['id' => $shop->id]) }}" method="get">
+                        @csrf
                         <button type="submit">全ての口コミ情報</button>
                     </form>
                 </div>
@@ -175,9 +175,9 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>
-                    <div class="submit-btn">
-                        <button type="submit">予約する</button>
+                        <div class="submit-btn">
+                            <button type="submit">予約する</button>
+                        </div>
                     </div>
                 </form>
             </div>

@@ -73,6 +73,20 @@
                     <div class="input-hidden">
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                     </div>
+                    @if(empty($my_review))
+                    <div class="form-rating">
+                        <input class="form-rating__input" id="star5" name="rating" type="radio" value="5">
+                        <label class="form-rating__label" for="star5">★</label>
+                        <input class="form-rating__input" id="star4" name="rating" type="radio" value="4">
+                        <label class="form-rating__label" for="star4">★</label>
+                        <input class="form-rating__input" id="star3" name="rating" type="radio" value="3">
+                        <label class="form-rating__label" for="star3">★</label>
+                        <input class="form-rating__input" id="star2" name="rating" type="radio" value="2">
+                        <label class="form-rating__label" for="star2">★</label>
+                        <input class="form-rating__input" id="star1" name="rating" type="radio" value="1">
+                        <label class="form-rating__label" for="star1">★</label>
+                    </div>
+                    @else
                     <div class="form-rating">
                         <input class="form-rating__input" id="star5" name="rating" type="radio" value="5" {{ optional($my_review)->rating == '5' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star5">★</label>
@@ -85,6 +99,7 @@
                         <input class="form-rating__input" id="star1" name="rating" type="radio" value="1" {{ optional($my_review)->rating == '1' ? 'checked' : '' }}>
                         <label class="form-rating__label" for="star1">★</label>
                     </div>
+                    @endif
                     <div class="error-message">
                         @if($errors->has('rating'))
                         {{ $errors->first('rating') }}
