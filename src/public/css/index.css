@@ -124,32 +124,49 @@ body {
     z-index: 999;
 }
 
-/* 検索フォーム */
-.search-box {
-    color: #fff;
+/* Sort */
+.sort-selector {
     background-color: #fff;
-    border: 1px solid #fff;
     border-radius: 5px;
-    box-shadow: 2px 2px 4px #666;
+
 }
 
+.sort-selector label {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px 0 0 5px;
+}
+
+.sort-selector select {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Search form */
 .input-form {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .select-area {
     width: 4rem;
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
 }
 
 .select-area select {
     border: none;
     padding: 5px;
     font-size: 14px;
+    border-radius: 5px 0 0 5px;
 }
 
 .select-genre {
     width: 5rem;
+    background-color: #fff;
 }
 
 .select-genre select {
@@ -159,13 +176,16 @@ body {
 }
 
 .glass-custom {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    background-color: #fff;
     color: #ddd;
     padding: 5px;
+    border: 1px solid #fff;
 }
 
 .search-word {
-    width: 6rem;
+    width: 5rem;
+    background-color: #fff;
 
 }
 
@@ -176,11 +196,11 @@ body {
     font-size: 14px;
 }
 
-.search-btn button {
+.search-btn {
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px;
 }
+
 
 /* 店舗情報 */
 .main-content {
@@ -270,11 +290,11 @@ body {
 }
 
 /* responsive design */
-@media screen and (max-width: 768px) {
-.main-content {
-    width: 90%;
-    margin: auto;
-}
+@media screen and (max-width: 1000px) {
+    .main-content {
+        width: 90%;
+        margin: auto;
+    }
 
     .header {
         flex-direction: column;
@@ -339,6 +359,7 @@ body {
     }
 
     .input-form {
+        margin-top: 10px;
         justify-content: center;
         align-items: center;
     }
@@ -352,5 +373,24 @@ body {
 
     .menu {
         width: 120%;
+    }
+
+    .glass-custom {
+        border: none;
+    }
+
+    .search-word {
+        border: 1px solid #fff;
+    }
+
+    .search-btn button {
+        font-size: 12px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .search-btn {
+        width: 3em;
     }
 }

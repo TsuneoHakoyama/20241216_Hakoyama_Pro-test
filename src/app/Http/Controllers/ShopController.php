@@ -13,20 +13,34 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $prefectures = Prefecture::all();
         $genres = Genre::all();
 
-        if(Auth::check()) {
-            $shops = Shop::with(['genre', 'prefecture', 'favorites' => function ($query) {
-                $query->where('user_id', Auth::id());
-            }])->get();
+        if(Auth::check()){
+            $query = Shop::query()
+                ->with('genre', 'prefecture', 'favorites')
+                ->withAvg('reviews', 'rating');
+        } else {
+            $query = Shop::query()
+                ->with('genre', 'prefecture')
+                ->withAvg('reviews', 'rating');
         }
 
-        $shops = Shop::with(['genre', 'prefecture'])->get();
+        $sort = $request->input('sort', 'random');
 
-        return view('index', compact('shops', 'prefectures', 'genres'));
+        if ($sort === 'high') {
+            $query->orderByRaw('reviews_avg_rating IS NULL, reviews_avg_rating DESC');
+        } elseif ($sort === 'low') {
+            $query->orderByRaw('reviews_avg_rating IS NULL, reviews_avg_rating ASC');
+        } else {
+            $query->inRandomOrder();
+        }
+
+        $shops = $query->get();
+
+        return view('index', compact('shops', 'sort', 'prefectures', 'genres'));
     }
 
     public function search(Request $request)

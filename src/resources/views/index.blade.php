@@ -42,6 +42,18 @@
                     @endif
                 </nav>
             </div>
+            <form action="{{ route('root') }}" method="get" id="sort-form">
+                @csrf
+                <div class="sort-selector">
+                    <label for="sort" class="sort">並び替え：</label>
+                    <select name="sort" id="sort" class="sort" onchange="submit(this.form)">
+                        <option value="">選択してください</option>
+                        <option value="random">ランダム</option>
+                        <option value="high">評価の高い順</option>
+                        <option value="low">評価の低い順</option>
+                    </select>
+                </div>
+            </form>
             <form action="/search" method="post" class="search-box">
                 @csrf
                 <div class="input-form">
@@ -120,7 +132,6 @@
     </main>
 
     <script src="{{ asset('js/hamburger.js') }}"></script>
-    <script src="{{ asset('js/confirm.js') }}"></script>
 </body>
 
 </html>
