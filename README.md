@@ -3,7 +3,7 @@
 PC版トップページ
 <img src="https://github.com/user-attachments/assets/32207f16-769c-413c-9e89-b903c5dcde9c" width="320px">
 モバイル版トップページ
-<img src="https://github.com/user-attachments/assets/c655a640-6e8d-4db3-908d-2dfbfd06bcca" width="150px">
+<img src="https://github.com/user-attachments/assets/c655a640-6e8d-4db3-908d-2dfbfd06bcca" width="100px">
 
 ## アプリケーションURL
 ###### 開発環境：http://localhost/
@@ -37,7 +37,9 @@ PC版トップページ
 ###### MailHog
 
 ## テーブル設計
-<img src="https://github.com/user-attachments/files/18149407/table_design.pdf" width="300px">
+<img src="https://github.com/user-attachments/assets/7bcaa26c-5211-4eb8-ba12-e8c8c10c22bb" width="200px">
+
+
 
 ## ER図
 <img src="https://github.com/user-attachments/assets/839f5506-456d-436f-8402-42af5305e7dc" width="300px">
@@ -64,4 +66,6 @@ PC版トップページ
 ###### 管理ユーザーとして利用
 ######      localhost/admin/logiにアクセスしadmin01@example.comでログイン。パスワードは"administrator"。
 ######      店舗情報追加用のcsvファイルは以下のフォーマットで作成する。すべての項目が入力必須。店舗名は50文字以内。地域は"東京都"、"大阪府"、"福岡県"のいずれか、またジャンルは"寿司"、"焼肉"、"居酒屋"、"イタリアン"、"ラーメン"のいずれかから選択して記載。画像はjpegもしくはpng形式でファイル名を記載。
-<img src="https://github.com/user-attachments/files/18149409/Shop_info.pdf" width="300px>
+<img src="https://github.com/user-attachments/assets/1f106a92-ab0b-44df-b9c6-11acfcec4663" width="150px">
+
+
