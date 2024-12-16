@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewRequest;
 use App\Models\Review;
 use App\Models\Shop;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class ReviewController extends Controller
         return view('review', compact('shop', 'my_review'));
     }
 
-    public function record(Request $request)
+    public function record(ReviewRequest $request)
     {
         $user_id = Auth::id();
         $param = $request->all();
@@ -45,8 +46,8 @@ class ReviewController extends Controller
     public function update(Request $request)
     {
         $shop = Shop::where('id', $request->shop_id)
-            ->with('prefecture', 'genre')
-            ->first();
+                    ->with('prefecture', 'genre')
+                    ->first();
         $my_review = Review::find($request->review_id);
 
         return view('review', compact('shop', 'my_review'));

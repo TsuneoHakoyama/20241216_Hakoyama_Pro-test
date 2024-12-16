@@ -33,6 +33,11 @@
     </header>
     <main>
         <div class="main-board">
+            <div class="message">
+                @if(session('remmove_msg'))
+                {{ session('remove_msg') }}
+                @endif
+            </div>
             <div class="title">
                 <h3>口コミ一覧</h3>
             </div>

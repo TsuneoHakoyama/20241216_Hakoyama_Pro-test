@@ -141,6 +141,10 @@ body {
     font-weight: bold;
 }
 
+.messages {
+    color: #f00;
+}
+
 .book-card {
     width: 100%;
     margin: 20px 20px;

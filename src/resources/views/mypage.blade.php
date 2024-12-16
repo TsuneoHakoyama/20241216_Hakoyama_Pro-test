@@ -36,7 +36,11 @@
                 <div class="column-title">
                     予約状況
                 </div>
-
+                <div class="messages">
+                    @if(session('remove_msg'))
+                    {{ session('remove_msg')}}
+                    @endif
+                </div>
                 @foreach ($my_bookings as $my_booking)
                 @if ($my_booking->bookings->isNotEmpty())
                 @foreach ($my_booking->bookings as $booking)
@@ -134,7 +138,6 @@
     </div>
 
     <script src="{{ asset('js/hamburger.js') }}"></script>
-    <script src="{{ asset('js/confirm.js') }}"></script>
 </body>
 
 </html>

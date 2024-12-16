@@ -26,6 +26,6 @@ class MypageController extends Controller
     {
         Booking::find($request->booking_id)->delete();
 
-        return redirect()->route('mypage');
+        return redirect()->route('mypage')->with(['remove_msg' => '予約をキャンセルしました']);
     }
 }

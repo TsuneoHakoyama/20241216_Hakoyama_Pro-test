@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ImportRequest;
+use App\Http\Requests\ShopUserRegisterRequest;
 use App\Models\Genre;
 use App\Models\Prefecture;
 use App\Models\Review;
@@ -19,57 +21,51 @@ class AdministratorController extends Controller
         return view('admin.index');
     }
 
-    public function import(Request $request)
+    public function import(ImportRequest $request)
     {
-        // バリデーション
+        dd($request->all());
         $request->validate([
             'csv_file' => 'required|file|mimes:csv,txt',
             'image_file.*' => 'required|file|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // 画像ファイルを保存しパスを取得
         $imagePaths = [];
         $dir = 'images/shops';
         if ($request->hasFile('image_file')) {
             foreach ($request->file('image_file') as $image) {
                 $file_name = $image->getClientOriginalName();
-                $path = $image->storeAs('public/' . $dir, $file_name);  // publicディレクトリに保存
-                $imagePaths[] = $path;  // 画像のパスを保存
+                $path = $image->storeAs('public/' . $dir, $file_name);
+                $imagePaths[] = $path;
             }
         }
 
-        // CSVファイルを読み込む
         $csvFile = $request->file('csv_file');
         $csvContent = file_get_contents($csvFile->getRealPath());
 
-        // 文字コードをShift-JISからUTF-8に変換
         $csvContentUtf8 = mb_convert_encoding($csvContent, 'UTF-8', 'SJIS');
 
-        // League\Csv\Reader を使用してCSVデータを読み込む
         $csv = Reader::createFromString($csvContentUtf8);
-        $csv->setHeaderOffset(0);  // ヘッダー行をスキップ
+        $csv->setHeaderOffset(0);
 
-        // 地域とジャンルのマッピング関数を使用
         $getGenreId = fn($genreName) => Genre::where('name', $genreName)->value('id');
         $getPrefectureId = fn($prefectureName) => Prefecture::where('name', $prefectureName)->value('id');
 
         foreach ($csv->getRecords() as $row) {
-            $shop = new Shop();  // Shopモデルを新規作成
-            $shop->name = $row['店舗名'];  // 店名をセット
-            $shop->prefecture_id = $getPrefectureId($row['地域']);  // 地域のIDを取得してセット
-            $shop->genre_id = $getGenreId($row['ジャンル']);        // ジャンルのIDを取得してセット
-            $shop->description = $row['説明'];  // 説明をセット
+            $shop = new Shop();
+            $shop->name = $row['店舗名'];
+            $shop->prefecture_id = $getPrefectureId($row['地域']);
+            $shop->genre_id = $getGenreId($row['ジャンル']);
+            $shop->description = $row['説明'];
 
-            // 画像名に基づいて画像パスを取得
-            $imageName = $row['画像名'] ?? null;  // CSVに画像名がある場合のみ
+            $imageName = $row['画像名'] ?? null;
             $imagePath = collect($imagePaths)->first(fn($path) => basename($path) === $imageName);
 
-            $shop->image = Storage::url($imagePath);  // 画像パスをセット
+            $shop->image = Storage::url($imagePath);
 
-            $shop->save();  // データベースに保存
+            $shop->save();
         }
 
-        return back()->with('success', '店舗データをインポートしました！');
+        return back()->with('success-import', '店舗データをインポートしました！');
     }
 
     public function showReview(Request $request)
@@ -83,11 +79,11 @@ class AdministratorController extends Controller
     {
         Review::find($request->id)->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with(['remove_msg' => '口コミを削除しました']);
 
     }
 
-    public function confirm(Request $request)
+    public function confirm(ShopUserRegisterRequest $request)
     {
         $shop_user = $request->only([
             'name',

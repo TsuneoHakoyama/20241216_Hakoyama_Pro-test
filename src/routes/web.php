@@ -38,7 +38,6 @@ Route::prefix('admin')->middleware('auth.administrators:administrators')->group(
     Route::get('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 });
 
-
 Route::get('/', [ShopController::class, 'index'])->name('root');
 Route::post('/search', [ShopController::class, 'search']);
 Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');

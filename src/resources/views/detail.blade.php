@@ -63,14 +63,15 @@
                     </div>
                 </div>
                 @if(Auth::check())
-                @if($booking_status->isNotEmpty())
-                @if(isset($review_status))
                 <div class="all-review">
                     <form action="{{ route('show.all', ['id' => $shop->id]) }}" method="get">
                         @csrf
                         <button type="submit">全ての口コミ情報</button>
                     </form>
                 </div>
+
+                @if($booking_status->isNotEmpty())
+                @if(isset($review_status))
                 <div class="my-review">
                     <div class="edit-link">
                         <form action="{{ route('update', ['id' => $shop->id]) }}" method="get">
@@ -130,7 +131,7 @@
                                 <option value="21:00">21:00</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="error-message">
                             @if($errors->has('time'))
                             {{ $errors->first('time') }}
                             @endif
@@ -145,7 +146,7 @@
                                 <option value="5">5人</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="error-message">
                             @if($errors->has('number'))
                             {{ $errors->first('number') }}
                             @endif

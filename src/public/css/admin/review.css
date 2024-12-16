@@ -78,15 +78,15 @@ body {
 }
 
 .main-board {
-    width: 90%;
+    width: 80%;
     height: 100%;
     margin: 50px auto;
 }
 
 .review {
-    width: 1000px;
+    width: 100%;
+    margin: auto;
     text-align: center;
-    table-layout: fixed;
 }
 
 .review * {
@@ -112,10 +112,12 @@ body {
 }
 
 .button button {
+    width: 40%;
     padding: 5px 2px;
     background-color: #ff0000;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 14px;
+    cursor: pointer;
 }
