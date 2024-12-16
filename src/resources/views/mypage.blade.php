@@ -27,7 +27,7 @@
                     </div>
                     <nav class="menu" id="menu">
                         <ul>
-                            <li><a href="{{ route('shop-all') }}">Home</a></li>
+                            <li><a href="{{ route('root') }}">Home</a></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>
                             <li><a href="{{ route('mypage') }}">Mypage</a></li>
                         </ul>
@@ -37,9 +37,9 @@
                     予約状況
                 </div>
 
-                @foreach ($my_reservations as $my_reservation)
-                @if ($my_reservation->reservations->isNotEmpty())
-                @foreach ($my_reservation->reservations as $reservation)
+                @foreach ($my_bookings as $my_booking)
+                @if ($my_booking->bookings->isNotEmpty())
+                @foreach ($my_booking->bookings as $booking)
                 <div class="book-card">
                     <div class="card-header">
                         <div class="header__inner">
@@ -47,7 +47,7 @@
                                 <i class="fa-regular fa-clock clock-custom"></i>
                             </div>
                             <div class="title">
-                                予約{{ $reservation->id}}
+                                予約{{ $booking->id}}
                             </div>
                         </div>
                         <div class="cancel-btn">
@@ -56,8 +56,8 @@
                                 @method('DELETE')
                                 <button type="submit">
                                     <i class="fa-regular fa-circle-xmark xmark-custom"></i>
-                                    <input type="hidden" name="shop_id" value="{{ $my_reservation->id }} ">
-                                    <input type="hidden" name="reservation_id" value="{{ $reservation->id }} ">
+                                    <input type="hidden" name="shop_id" value="{{ $my_booking->id }} ">
+                                    <input type="hidden" name="booking_id" value="{{ $booking->id }} ">
                             </form>
                         </div>
                     </div>
@@ -65,19 +65,19 @@
                         <table class="description">
                             <tr>
                                 <th>Shop</th>
-                                <td>{{ $my_reservation->name }}</td>
+                                <td>{{ $my_booking->name }}</td>
                             </tr>
                             <tr>
                                 <th>Date</th>
-                                <td>{{ $reservation->date }}</td>
+                                <td>{{ $booking->date }}</td>
                             </tr>
                             <tr>
                                 <th>Time</th>
-                                <td>{{ $reservation->time }}</td>
+                                <td>{{ $booking->time }}</td>
                             </tr>
                             <tr>
                                 <th>Number</th>
-                                <td>{{ $reservation->people }}人</td>
+                                <td>{{ $booking->number }}人</td>
                             </tr>
                         </table>
                     </div>
@@ -104,8 +104,8 @@
                         <div class="shop-info">
                             <div class="shop-name">{{ $my_favorite->name }}</div>
                             <div class="shop-tag">
-                                <div class="area-tag">#{{ $my_favorite->prefectures->name }}</div>
-                                <div class="genre-tag">#{{ $my_favorite->genres->name }}</div>
+                                <div class="area-tag">#{{ $my_favorite->prefecture->name }}</div>
+                                <div class="genre-tag">#{{ $my_favorite->genre->name }}</div>
                             </div>
                             <div class="more-info">
                                 <div class="for-detail">

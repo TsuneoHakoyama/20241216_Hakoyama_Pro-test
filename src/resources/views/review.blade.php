@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-
+    <script src="{{ asset('js/hamburger.js') }}"></script>
+    <script src="{{ asset('js/count.js') }}"></script>
+    <script src="{{ asset('js/imagefilename.js') }}"></script>
 </head>
 
 <body>
@@ -109,8 +111,11 @@
                         <h3>口コミを投稿</h3>
                     </div>
                     <div class="input-text">
-                        <textarea name="comment" id="" rows="10" cols="40">{{ optional($my_review)->comment }}</textarea>
-                        <p>最大文字数</p>
+                        <textarea contenteditable onkeyup="ShowLength(value);" name="comment" id="comment" rows="10" cols="40" maxlength="400">{{ optional($my_review)->comment }}</textarea>
+                        <div class="text-counter">
+                            <p id="inputlength">0</p>
+                            <p>/400(最大文字数)</p>
+                        </div>
                     </div>
                     <div class="error-message">
                         @if($errors->has('comment'))
@@ -122,11 +127,11 @@
                     </div>
                     <div class="input-image">
                         <div class="image-card">
-                            <div class="text__field">
+                            <div class="text-field">
                                 <label class="label" for="image">
                                     <input type="file" name="image" id="image" value="{{ optional($my_review)->image }}">ファイルを選択
                                 </label>
-                                <p id="upload-file">またはドラッグアンドドロップ</p>
+                                <p id="upload-image">選択されていません</p>
                             </div>
                         </div>
                     </div>
@@ -146,8 +151,6 @@
 
     </div>
 
-    <script src="{{ asset('js/hamburger.js') }}"></script>
-    <script src="{{ asset('js/filename.js') }}"></script>
 </body>
 
 </html>

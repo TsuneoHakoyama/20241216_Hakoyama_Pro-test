@@ -1,32 +1,37 @@
-.main-content {
+body {
     background-color: #eee;
-    padding: 50px 0 300px;
 }
 
 .main-board {
+    background-color: #eee;
+    height: 100%;
+}
+
+.main-content {
     width: 80%;
     margin: 0 auto;
+    background-color: #eee;
+    padding: 50px 0 300px;
     display: flex;
     justify-content: space-between;
 }
 
-.shop-detail {
-    width: 47%;
+.book-status {
+    width: 35%;
+    margin-top: 0;
     background-color: #eee;
     border: none;
 }
 
-.review-form {
-    width: 47%;
+.my-favorite {
+    width: 55%;
+    background-color: #eee;
 }
 
 /* メニューボタンとタイトルロゴ */
 .header__wrapper-title {
-    width: 80%;
-    margin: 0 auto;
     display: flex;
     align-items: center;
-
 }
 
 /* ハンバーガーメニュー */
@@ -122,7 +127,6 @@
 
 .menu a {
     text-decoration: none;
-    color: #005fff;
 }
 
 .menu.is-active {
@@ -130,14 +134,96 @@
     z-index: 999;
 }
 
-/*店舗情報*/
-.introduction {
-    margin: 100px 0;
-    padding: 0 80px 0 20px;
-    border-right: 1px solid #aaa;
+/* 予約状況 */
+.column-title {
+    margin: 150px 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.book-card {
+    width: 100%;
+    margin: 20px 20px;
+    background-color: #005fff;
+    color: #fff;
+    padding: 20px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    font-size: 14px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 0;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.clock-custom {
+    font-size: 1.5em;
+}
+
+.title {
+    margin-left: 20px;
+}
+
+.cancel-btn button {
+    background-color: #005fff;
+    border: none;
+    cursor: pointer;
+}
+
+.xmark-custom {
+    color: #fff;
+    background-color: #005fff;
+    font-size: 1.5em;
+}
+
+.confirm-window {
+    background-color: #005fff;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.description {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.description th {
+    text-align: left;
+    width: 45%;
+}
+
+/* お気に入り店舗 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.user-name {
+    margin-top: 120px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.list-title {
+    margin: 45px 0 0;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .shop-card {
+    margin-top: 20px;
     width: 100%;
     background-color: #fff;
     border-radius: 5px;
@@ -151,7 +237,7 @@
 
 .shop-name {
     margin: 10px 10px 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -181,6 +267,7 @@
     display: inline-block;
 }
 
+
 .for-detail a {
     padding: 5px 10px;
     background-color: #005fff;
@@ -209,144 +296,4 @@
 .heart-active {
     font-size: 1.5em;
     color: #f00;
-}
-
-/*口コミ入力*/
-.form-rating {
-    align-items: center;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    margin: 30px 0 50px;
-}
-
-.form-rating__input {
-    display: none;
-}
-
-.form-rating__label {
-    color: #ccc;
-    cursor: pointer;
-    font-size: 30px;
-    padding: 0 10px;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.form-rating__label:hover,
-.form-rating__label:hover~.form-rating__label,
-.form-rating__input:checked~.form-rating__label {
-    color: #005fff;
-}
-
-.title h3 {
-    margin-bottom: 0;
-}
-
-.input-text {
-    margin: 0 auto 50px;
-}
-
-.input-text textarea {
-    width: 100%;
-    background-color: #eee;
-    border: 1px solid #aaa;
-}
-
-.text-counter {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.text-counter p {
-    margin-top: 0;
-}
-
-.input-text p {
-    margin-right: 0;
-    font-size: 12px;
-}
-
-.input-image {
-    width: 100%;
-    margin: 0 auto 50px;
-    background-color: #fff;
-}
-
-.input-image.highlight {
-    background-color: #f0f0f0;
-}
-
-.image-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 15vh;
-}
-
-.text-field {
-    text-align: center;
-}
-
-.image-card input[type="file"] {
-    display: none;
-}
-
-.label {
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.image-card p {
-    margin: 0;
-    font-size: 14px;
-}
-
-.upload-image img {
-    margin: 10px;
-    object-fit: cover;
-}
-
-.submit {
-    text-align: center;
-}
-
-.submit button {
-    padding: 10px 80px;
-    background-color: #fff;
-    border: 1px solid #fff;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Responsive design */
-@media screen and (max-width: 750px) {
-    .main-board {
-        width: 80%;
-        margin: 0 auto;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .shop-detail {
-        width: 100%;
-        background-color: #eee;
-        border: none;
-    }
-
-    .introduction {
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
-
-    .title {
-        font-size: 14px;
-    }
-
-    .review-form {
-        width: 100%;
-    }
 }

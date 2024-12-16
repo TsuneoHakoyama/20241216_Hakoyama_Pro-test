@@ -74,7 +74,9 @@
                         </p>
                     </div>
                     <div class="comment">{{ $review->comment }}</div>
-                    <div class="image">{{ $review->image }}</div>
+                    <div class="review-image">
+                        <img src="{{ asset($review->image) }}" alt="画像" class="{{ $review->image ? '' : 'hidden'}}">
+                    </div>
                 </div>
                 @endforeach
             </div>

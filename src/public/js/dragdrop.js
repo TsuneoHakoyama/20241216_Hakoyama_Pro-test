@@ -1,68 +1,17 @@
-let dropArea = document.getElementById('drop-area');
+     Dropzone.autoDiscover = false; // 自動初期化を無効化
 
-['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, preventDefaults, false);
-});
-
-function preventDefaults(e) {
-    e.preventDefault();
-    e.stopPropagation();
-}
-
-['dragenter', 'dragover'].forEach(eventName => {
-    dropArea.addEventListener(eventName, highlight, false);
-});
-
-['dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, unhighlight, false);
-});
-
-function highlight(e) {
-    dropArea.classList.add('highlight');
-}
-
-function unhighlight(e) {
-    dropArea.classList.remove('highlight');
-}
-
-dropArea.addEventListener('drop', handleDrop, false);
-
-function handleDrop(e) {
-    let dt = e.dataTransfer;
-    let files = dt.files;
-
-    handleFiles(files);
-}
-
-function handleFiles(files) {
-    ([...files]).forEach(uploadFile);
-}
-
-async function uploadFile(file) {
-    const url = '/upload';
-    const formData = new FormData();
-    formData.append('image', file);
-
-    const response = await fetch(url, {
+    const dropzone = new Dropzone("#image-upload", {
+        maxFilesize: 2, // 最大ファイルサイズ (MB)
+        acceptedFiles: "image/jpeg,image/png", // 許可するファイルタイプ
+        addRemoveLinks: true, // 削除ボタンを表示
+        dictRemoveFile: "削除", // 削除ボタンのテキスト
         headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         },
-        method: 'POST',
-        body: formData
+        success: function(file, response) {
+            console.log("アップロード成功", response.path);
+        },
+        error: function(file, response) {
+            console.log("アップロード失敗", response);
+        }
     });
-
-    const data = await response.json();
-
-    if (response.ok) {
-        previewUrl(data.url);
-    } else {
-        console.error(data.message);
-    }
-}
-
-function previewUrl(url) {
-    let img = document.createElement('img');
-    img.src = url;
-    document.getElementById('gallery').appendChild(img);
-}

@@ -212,6 +212,7 @@
 /*口コミ一覧*/
 .review-card {
     width: 100%;
+    margin: 20px 5px 20px 0;
     padding: 10px 30px;
     background-color: #fff;
     border: 1px solid #fff;
@@ -276,6 +277,15 @@
 
 .comment {
     margin: 10px auto;
+}
+
+.review-image img {
+    width: 100%;
+    object-fit:cover
+}
+
+.hidden {
+    display: none;
 }
 
 /* Responsive design */

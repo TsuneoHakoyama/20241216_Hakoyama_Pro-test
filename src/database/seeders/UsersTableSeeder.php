@@ -34,5 +34,13 @@ class UsersTableSeeder extends Seeder
             'created_at' => $today->copy()->subDay(14)->toDateTimeString(),
         ];
         DB::table('users')->insert($param);
+        $param = [
+            'name' => 'ユーザー3',
+            'email' => 'user3@example.com',
+            'password' => Hash::make('password'),
+            'email_verified_at' => $today->copy()->subDay(3)->toDateTimeString(),
+            'created_at' => $today->copy()->subDay(3)->toDateTimeString(),
+        ];
+        DB::table('users')->insert($param);
     }
 }

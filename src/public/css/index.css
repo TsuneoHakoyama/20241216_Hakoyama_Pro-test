@@ -277,6 +277,7 @@ body {
 .favorite button {
     background-color: #fff;
     border: none;
+    cursor: pointer;
 }
 
 .heart-inactive {

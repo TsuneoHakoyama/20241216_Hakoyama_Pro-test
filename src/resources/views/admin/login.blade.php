@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
+    <title>管理者ログイン</title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
@@ -24,23 +24,14 @@
                 <a href="#">Rese</a>
             </div>
         </div>
-        </div>
-        <nav class="menu" id="menu">
-            <ul>
-                <li><a href="{{ route('root') }}">Home</a></li>
-                <li><a href="{{ route('register') }}">Registration</a></li>
-                <li><a href="{{ route('login') }}">Login</a></li>
-            </ul>
-        </nav>
-
 
         <!-- Login window -->
         <div class="login-window">
             <div class="title-area">
-                <p>Login</p>
+                <p>Administrator</p>
             </div>
             <div class="content">
-                <form action="/login" method="post">
+                <form action="{{ route('admin.login.login') }}" method="post">
                     @csrf
                     <div class="input-form">
                         <div class="input__email">
@@ -70,7 +61,6 @@
         </div>
     </main>
 
-    <script src="{{ asset('js/hamburger.js') }}"></script>
 </body>
 
 </html>

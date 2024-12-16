@@ -18,15 +18,9 @@ class ShopController extends Controller
         $prefectures = Prefecture::all();
         $genres = Genre::all();
 
-        if(Auth::check()){
-            $query = Shop::query()
-                ->with('genre', 'prefecture', 'favorites')
-                ->withAvg('reviews', 'rating');
-        } else {
-            $query = Shop::query()
-                ->with('genre', 'prefecture')
-                ->withAvg('reviews', 'rating');
-        }
+        $query = Shop::query()->with(['genre', 'prefecture', 'favorites' => function ($query) {
+            $query->where('user_id', Auth::id());
+        }])->withAvg('reviews', 'rating');
 
         $sort = $request->input('sort', 'random');
 

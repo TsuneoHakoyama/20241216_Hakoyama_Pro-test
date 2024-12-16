@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,8 @@ class MypageController extends Controller
 
     public function destroy(Request $request)
     {
-        $shop = Shop::find($request->shop_id);
-        $shop->favorites()->delete();
+        Booking::find($request->booking_id)->delete();
 
-        return redirect()->route('mypage', [$request->shop_id]);
+        return redirect()->route('mypage');
     }
 }

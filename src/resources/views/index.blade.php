@@ -31,7 +31,7 @@
                     <ul>
                         <li><a href="{{ route('root') }}">Home</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>
-                        <li><a href="{{ '/mypage' }}">Mypage</a></li>
+                        <li><a href="{{ route('mypage') }}">Mypage</a></li>
                     </ul>
                     @else
                     <ul>

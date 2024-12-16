@@ -18,6 +18,8 @@ class CreateShopUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('shop_name');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

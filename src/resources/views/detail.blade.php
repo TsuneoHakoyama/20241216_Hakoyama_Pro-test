@@ -30,7 +30,7 @@
                         <ul>
                             <li><a href="{{ route('root') }}">Home</a></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>
-                            <li><a href="{{ '/mypage' }}">Mypage</a></li>
+                            <li><a href="{{ route('mypage') }}">Mypage</a></li>
                         </ul>
                         @else
                         <ul>
@@ -80,6 +80,7 @@
                             <button type="submit">口コミを編集</button>
                         </form>
                         <form action="{{ route('remove', ['id' => $shop->id]) }}" method="post">
+                            @method('delete')
                             @csrf
                             <input type="hidden" name="review_id" value="{{ $review_status->id }}">
                             <button type="submit">口コミを削除</button>
