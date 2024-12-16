@@ -45,7 +45,7 @@ PC版トップページ
 <img src="https://github.com/user-attachments/assets/839f5506-456d-436f-8402-42af5305e7dc" width="300px">
    
 ## 環境構築
-######  1. git clone git@github.com:TsuneoHakoyama/Hakoyama_Pro-test.git
+######  1. git clone git@github.com:TsuneoHakoyama/20241216_Hakoyama_Pro-test.git
 ######  2. cd Hakoyama_Pro-test
 ######  3. docker desktopの起動
 ######  4. docker compose up -d --build 
