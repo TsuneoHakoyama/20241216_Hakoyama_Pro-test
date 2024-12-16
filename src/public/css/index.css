@@ -1,0 +1,397 @@
+body {
+    background-color: #eee;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0 0;
+}
+
+/* メニューボタンとタイトルロゴ */
+.header__wrapper-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: relative;
+    background: #005fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    z-index: 9999;
+}
+
+.burger span {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.burger span:nth-of-type(1) {
+    top: 15px;
+    width: 30%;
+}
+
+.burger span:nth-of-type(2) {
+    top: 23px;
+    width: 60%;
+}
+
+.burger span:nth-of-type(3) {
+    top: 31px;
+    width: 20%;
+}
+
+.burger.is-active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 30%;
+}
+
+.burger.is-active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.burger.burger.is-active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 30%;
+}
+
+.logo a {
+    margin-left: 20px;
+    color: #005fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    left: -50px;
+    width: 105%;
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #005fff;
+}
+
+.menu ul {
+    position: absolute;
+    z-index: 999;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #005fff;
+}
+
+.menu.is-active {
+    opacity: 1;
+    z-index: 999;
+}
+
+/* Sort */
+.sort-selector {
+    background-color: #fff;
+    border-radius: 5px;
+
+}
+
+.sort-selector label {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px 0 0 5px;
+}
+
+.sort-selector select {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Search form */
+.input-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.select-area {
+    width: 4rem;
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
+}
+
+.select-area select {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px 0 0 5px;
+}
+
+.select-genre {
+    width: 5rem;
+    background-color: #fff;
+}
+
+.select-genre select {
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.glass-custom {
+    font-size: 0.9rem;
+    background-color: #fff;
+    color: #ddd;
+    padding: 5px;
+    border: 1px solid #fff;
+}
+
+.search-word {
+    width: 5rem;
+    background-color: #fff;
+
+}
+
+.search-word input {
+    border: none;
+    padding: 5px;
+    width: 8em;
+    font-size: 14px;
+}
+
+.search-btn {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+/* 店舗情報 */
+.main-content {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.shop-card {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+}
+
+.shop-image img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop-name {
+    margin: 10px 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.shop-tag {
+    margin: 0 10px 10px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.area-tag {
+    display: inline-block;
+}
+
+.genre-tag {
+    display: inline-block;
+}
+
+.more-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px 15px;
+}
+
+.for-detail {
+    width: 60%;
+    display: inline-block;
+}
+
+
+.for-detail a {
+    padding: 5px 10px;
+    background-color: #005fff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.favorite {
+    display: inline-block;
+    margin-right: 0;
+}
+
+.favorite button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.heart-inactive {
+    font-size: 1.5em;
+    color: #ddd;
+}
+
+.heart-active {
+    font-size: 1.5em;
+    color: #f00;
+}
+
+/* responsive design */
+@media screen and (max-width: 1000px) {
+    .main-content {
+        width: 90%;
+        margin: auto;
+    }
+
+    .header {
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center;
+        list-style: none;
+        font-size: 12px;
+    }
+
+    .burger {
+        position: relative;
+        background: #005fff;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px #666;
+        z-index: 9999;
+    }
+
+    .burger span {
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        height: 2px;
+        border-radius: 2px;
+        background: #fff;
+    }
+
+    .burger span:nth-of-type(1) {
+        top: 7px;
+        width: 30%;
+    }
+
+    .burger span:nth-of-type(2) {
+        top: 15px;
+        width: 60%;
+    }
+
+    .burger span:nth-of-type(3) {
+        top: 23px;
+        width: 20%;
+    }
+
+    .burger.is-active span:nth-of-type(1) {
+        top: 7px;
+        left: 12px;
+        transform: translateY(6px) rotate(-135deg);
+        width: 30%;
+    }
+
+    .burger.is-active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .burger.burger.is-active span:nth-of-type(3) {
+        top: 19px;
+        left: 12px;
+        transform: translateY(-6px) rotate(135deg);
+        width: 30%;
+    }
+
+    .input-form {
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: 30px auto;
+    }
+
+    .menu {
+        width: 120%;
+    }
+
+    .glass-custom {
+        border: none;
+    }
+
+    .search-word {
+        border: 1px solid #fff;
+    }
+
+    .search-btn button {
+        font-size: 12px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .search-btn {
+        width: 3em;
+    }
+}

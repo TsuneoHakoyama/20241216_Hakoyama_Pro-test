@@ -1,0 +1,299 @@
+body {
+    background-color: #eee;
+}
+
+.main-board {
+    background-color: #eee;
+    height: 100%;
+}
+
+.main-content {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #eee;
+    padding: 50px 0 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-status {
+    width: 35%;
+    margin-top: 0;
+    background-color: #eee;
+    border: none;
+}
+
+.my-favorite {
+    width: 55%;
+    background-color: #eee;
+}
+
+/* メニューボタンとタイトルロゴ */
+.header__wrapper-title {
+    display: flex;
+    align-items: center;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: relative;
+    background: #005fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    z-index: 9999;
+}
+
+.burger span {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.burger span:nth-of-type(1) {
+    top: 15px;
+    width: 30%;
+}
+
+.burger span:nth-of-type(2) {
+    top: 23px;
+    width: 60%;
+}
+
+.burger span:nth-of-type(3) {
+    top: 31px;
+    width: 20%;
+}
+
+.burger.is-active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 30%;
+}
+
+.burger.is-active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.burger.burger.is-active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 30%;
+}
+
+.logo a {
+    margin-left: 20px;
+    color: #005fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    left: -50px;
+    width: 105%;
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #005fff;
+}
+
+.menu ul {
+    position: absolute;
+    z-index: 999;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu.is-active {
+    opacity: 1;
+    z-index: 999;
+}
+
+/* 予約状況 */
+.column-title {
+    margin: 150px 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.book-card {
+    width: 100%;
+    margin: 20px 20px;
+    background-color: #005fff;
+    color: #fff;
+    padding: 20px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    font-size: 14px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 0;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.clock-custom {
+    font-size: 1.5em;
+}
+
+.title {
+    margin-left: 20px;
+}
+
+.cancel-btn button {
+    background-color: #005fff;
+    border: none;
+    cursor: pointer;
+}
+
+.xmark-custom {
+    color: #fff;
+    background-color: #005fff;
+    font-size: 1.5em;
+}
+
+.confirm-window {
+    background-color: #005fff;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.description {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.description th {
+    text-align: left;
+    width: 45%;
+}
+
+/* お気に入り店舗 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.user-name {
+    margin-top: 120px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.list-title {
+    margin: 45px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.shop-card {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+}
+
+.shop-image img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop-name {
+    margin: 10px 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.shop-tag {
+    margin: 0 10px 10px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.area-tag {
+    display: inline-block;
+}
+
+.genre-tag {
+    display: inline-block;
+}
+
+.more-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px 15px;
+}
+
+.for-detail {
+    width: 60%;
+    display: inline-block;
+}
+
+
+.for-detail a {
+    padding: 5px 10px;
+    background-color: #005fff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.favorite {
+    display: inline-block;
+    margin-right: 0;
+}
+
+.favorite button {
+    background-color: #fff;
+    border: none;
+}
+
+.heart-inactive {
+    font-size: 1.5em;
+    color: #ddd;
+}
+
+.heart-active {
+    font-size: 1.5em;
+    color: #f00;
+}

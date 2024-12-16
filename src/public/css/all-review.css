@@ -1,0 +1,314 @@
+.main-content {
+    background-color: #eee;
+    padding: 50px 0 300px;
+}
+
+.main-board {
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-detail {
+    width: 45%;
+    background-color: #eee;
+    border: none;
+}
+
+.review-view {
+    width: 45%;
+}
+
+/* メニューボタンとタイトルロゴ */
+.header__wrapper-title {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: relative;
+    background: #005fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    z-index: 9999;
+}
+
+.burger span {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.burger span:nth-of-type(1) {
+    top: 15px;
+    width: 30%;
+}
+
+.burger span:nth-of-type(2) {
+    top: 23px;
+    width: 60%;
+}
+
+.burger span:nth-of-type(3) {
+    top: 31px;
+    width: 20%;
+}
+
+.burger.is-active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-135deg);
+    width: 30%;
+}
+
+.burger.is-active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.burger.burger.is-active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(135deg);
+    width: 30%;
+}
+
+.logo a {
+    margin-left: 20px;
+    color: #005fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    left: -50px;
+    width: 105%;
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #005fff;
+}
+
+.menu ul {
+    position: absolute;
+    z-index: 999;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #005fff;
+}
+
+.menu.is-active {
+    opacity: 1;
+    z-index: 999;
+}
+
+/*店舗情報*/
+.introduction {
+    margin-top: 50px;
+    padding: 0 60px 0 20px;
+    border-right: 1px solid #aaa;
+}
+
+.shop-card {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+}
+
+.shop-image img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop-name h2 {
+    margin: 0;
+}
+
+.shop-tag {
+    margin: 0 10px 10px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.area-tag {
+    display: inline-block;
+}
+
+.genre-tag {
+    display: inline-block;
+}
+
+.more-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px 15px;
+}
+
+.for-detail {
+    width: 60%;
+    display: inline-block;
+}
+
+.for-detail a {
+    padding: 5px 10px;
+    background-color: #005fff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.favorite {
+    display: inline-block;
+    margin-right: 0;
+}
+
+.favorite button {
+    background-color: #fff;
+    border: none;
+}
+
+.heart-inactive {
+    font-size: 1.5em;
+    color: #ddd;
+}
+
+.heart-active {
+    font-size: 1.5em;
+    color: #f00;
+}
+
+/*口コミ一覧*/
+.review-card {
+    width: 100%;
+    margin: 20px 5px 20px 0;
+    padding: 10px 30px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px #666;
+}
+
+.user-name {
+    margin-bottom: 5px;
+}
+
+.rating p {
+    margin: 10px 0;
+}
+
+.star5_rating {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #CCC;
+    font-size: 30px;
+}
+
+.star5_rating:before, .star5_rating:after {
+    content: '★★★★★';
+}
+
+.star5_rating:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #005fff;
+}
+
+.star5_rating[data-rate="5"]:after {
+    width: 100%;
+}
+
+.star5_rating[data-rate="4"]:after {
+    width: 80%;
+}
+
+.star5_rating[data-rate="3"]:after {
+    width: 60%;
+}
+
+.star5_rating[data-rate="2"]:after {
+    width: 40%;
+}
+
+.star5_rating[data-rate="1"]:after {
+    width: 20%;
+}
+
+.star5_rating[data-rate="0"]:after {
+    width: 0%;
+}
+
+.comment {
+    margin: 10px auto;
+}
+
+.review-image img {
+    width: 100%;
+    object-fit:cover
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .main-board {
+        width: 90%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .shop-detail {
+        width: 100%;
+    }
+
+    .introduction {
+        margin-top: 40px;
+        padding: 0;
+        border: none;
+    }
+
+    .review-view {
+        width: 100%;
+    }
+
+}

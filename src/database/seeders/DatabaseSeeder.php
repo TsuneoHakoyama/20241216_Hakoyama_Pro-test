@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use CreateAdministratorsTable;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(GenresTableSeeder::class);
+        $this->call(PrefecturesTableSeeder::class);
+        $this->call(ShopsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(ReviewsTableSeeder::class);
+        $this->call(BookingsTableSeeder::class);
+        $this->call(AdministratorsTableSeeder::class);
+        $this->call(ShopUsersTableSeeder::class);
+        $this->call(FavoritesTableSeeder::class);
     }
 }

@@ -1,0 +1,121 @@
+body {
+    background-color: #eee;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0 0;
+}
+
+.review-link {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.review-link li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+.review-link a {
+    text-decoration: none;
+}
+
+/* メニューボタンとタイトルロゴ */
+.logo-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: relative;
+    background: #005fff;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #666;
+    z-index: 9999;
+}
+
+.burger span {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.burger span:nth-of-type(1) {
+    top: 15px;
+    width: 30%;
+}
+
+.burger span:nth-of-type(2) {
+    top: 23px;
+    width: 60%;
+}
+
+.burger span:nth-of-type(3) {
+    top: 31px;
+    width: 20%;
+}
+
+.logo a {
+    margin-left: 20px;
+    color: #005fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-board {
+    width: 90%;
+    height: 100%;
+    margin: 50px auto;
+}
+
+.review {
+    width: 1000px;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.review * {
+    border: 1px solid #666;
+    width: 100px;
+    text-align: center;
+}
+
+.review th {
+    padding: 5px;
+    background-color: #ccc;
+    font-size: 16px;
+}
+
+.review td {
+    padding: 5px;
+    border-bottom: 1px solid #666;
+    font-size: 14px;
+}
+
+.button {
+    border: none;
+}
+
+.button button {
+    padding: 5px 2px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
