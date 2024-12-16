@@ -11,7 +11,6 @@
 
 <body>
     <main class="main">
-        <!-- Menu-button and title-logo -->
         <div class="title-logo">
             <button class="burger" id="burger">
                 <span></span>
@@ -30,7 +29,6 @@
             </ul>
         </nav>
 
-        <!-- Thanks message -->
         <div class="content">
             <div class="message">
                 <p>ご予約ありがとうございます</p>

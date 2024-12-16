@@ -14,7 +14,6 @@
 <body>
     <main class="main">
         <div class="header">
-            <!-- Menu-button and title-logo -->
             <div class="header__wrapper-title">
                 <div class="title-logo">
                     <button class="burger" id="burger">

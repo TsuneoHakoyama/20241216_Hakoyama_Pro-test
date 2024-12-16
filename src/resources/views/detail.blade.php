@@ -87,6 +87,7 @@
                             <button type="submit">口コミを削除</button>
                         </form>
                     </div>
+                    
                     <div class="rating">
                         <p>
                             <span class="star5_rating" data-rate="{{ $review_status->rating }}"></span>

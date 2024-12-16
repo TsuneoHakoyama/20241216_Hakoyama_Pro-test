@@ -13,7 +13,6 @@
 
 <body>
     <main class="main">
-        <!-- Menu-button and title-logo -->
         <div class="title-logo">
             <button class="burger" id="burger">
                 <span></span>
@@ -33,8 +32,6 @@
             </ul>
         </nav>
 
-
-        <!-- Login window -->
         <div class="login-window">
             <div class="title-area">
                 <p>Login</p>
