@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-    <script src="{{ asset('js/hamburger.js') }}"></script>
-    <script src="{{ asset('js/count.js') }}"></script>
-    <script src="{{ asset('js/imagefilename.js') }}"></script>
 </head>
 
 <body>
     <div class="main-content">
+        <div class="main-board"></div>
         <div class="header__wrapper-title">
             <div class="title-logo">
                 <button class="burger" id="burger">
@@ -72,6 +70,11 @@
                     <div class="title">
                         <h3>体験を評価してください</h3>
                     </div>
+                    <div class="error-message">
+                        @if($errors->has('rating'))
+                        {{ $errors->first('rating') }}
+                        @endif
+                    </div>
                     <div class="input-hidden">
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                     </div>
@@ -102,13 +105,13 @@
                         <label class="form-rating__label" for="star1">★</label>
                     </div>
                     @endif
-                    <div class="error-message">
-                        @if($errors->has('rating'))
-                        {{ $errors->first('rating') }}
-                        @endif
-                    </div>
                     <div class="title">
                         <h3>口コミを投稿</h3>
+                    </div>
+                    <div class="error-message">
+                        @if($errors->has('comment'))
+                        {{ $errors->first('comment') }}
+                        @endif
                     </div>
                     <div class="input-text">
                         <textarea contenteditable onkeyup="ShowLength(value);" name="comment" id="comment" rows="10" cols="40" maxlength="400">{{ optional($my_review)->comment }}</textarea>
@@ -116,11 +119,6 @@
                             <p id="inputlength">0</p>
                             <p>/400(最大文字数)</p>
                         </div>
-                    </div>
-                    <div class="error-message">
-                        @if($errors->has('comment'))
-                        {{ $errors->first('comment') }}
-                        @endif
                     </div>
                     <div class="title">
                         <h3>画像の追加</h3>
@@ -135,11 +133,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="error-message">
-                        @if($errors->has('image'))
-                        {{ $errors->first('image') }}
-                        @endif
-                    </div>
                 </div>
             </div>
             <div class="submit">
@@ -147,10 +140,9 @@
             </div>
         </form>
     </div>
-
-
-    </div>
-
+    <script src="{{ asset('js/hamburger.js') }}"></script>
+    <script src="{{ asset('js/count.js') }}"></script>
+    <script src="{{ asset('js/imagefilename.js') }}"></script>
 </body>
 
 </html>

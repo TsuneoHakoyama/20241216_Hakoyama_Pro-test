@@ -22,7 +22,7 @@ class ReviewsTableSeeder extends Seeder
             'shop_id' => 2,
             'rating' => 4,
             'comment' => '静かで上品な雰囲気の中、希少部位をじっくりと堪能できました。',
-            'created_at' => $today->copy()->subDay(5)->toDateTimeString(),
+            'created_at' => $today->copy()->subDay(2)->toDateTimeString(),
         ];
         DB::table('reviews')->insert($param);
         $param = [
@@ -30,14 +30,14 @@ class ReviewsTableSeeder extends Seeder
             'shop_id' => 4,
             'rating' => 5,
             'comment' => 'おしゃれなお店で、ワインもおいしかったです。',
-            'created_at' => $today->copy()->subDay(20)->toDateTimeString(),
+            'created_at' => $today->copy()->subDay(10)->toDateTimeString(),
         ];
         DB::table('reviews')->insert($param);
         $param = [
             'user_id' => 3,
             'shop_id' => 4,
             'rating' => 4,
-            'comment' => 'おしゃれなお店で、ワインもおいしかったです。',
+            'comment' => '明るい雰囲気で楽しく食事ができました。ピザが特に美味しかったです。',
             'image' => 'storage/images/reviews/pizza.jpg',
             'created_at' => $today->copy()->subDay(10)->toDateTimeString(),
         ];
