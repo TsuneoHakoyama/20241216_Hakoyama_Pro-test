@@ -112,6 +112,4 @@ class AdministratorController extends Controller
 
         return redirect()->route('admin.index')->with('success', '店舗代表者を登録しました');
     }
-
-
 }

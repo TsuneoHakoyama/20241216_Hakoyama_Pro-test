@@ -34,8 +34,6 @@ class AdminLoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login.index')->with([
-            'logout_msg' => 'ログアウトしました',
-        ]);
+        return redirect()->route('admin.login.index')->with(['logout_msg' => 'ログアウトしました']);
     }
 }

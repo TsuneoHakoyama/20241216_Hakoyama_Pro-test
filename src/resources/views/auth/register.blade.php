@@ -13,7 +13,6 @@
 
 <body>
     <main class="main">
-        <!-- Menu-button and title-logo -->
         <div class="title-logo">
             <button class="burger" id="burger">
                 <span></span>
@@ -32,7 +31,6 @@
             </ul>
         </nav>
 
-        <!-- Register window -->
         <div class="register-window">
             <div class="title-area">
                 <p>Registration</p>
@@ -78,7 +76,6 @@
     </main>
 
     <script src="{{ asset('js/hamburger.js') }}"></script>
-    <script src="{{ asset('js/confirm.js') }}"></script>
 </body>
 
 </html>
