@@ -1,7 +1,9 @@
 # Rese
-###### 概要:飲食店予約アプリ。会員登録することで登録店舗の予約ができる。また、会員の店舗に対する評価を見ることや自身が訪れた店舗の評価を投稿できる。今回、口コミ機能、店舗一覧ソート機能、csvインポート機能の3機能について開発を行った。
- <-- トップ画面 PC版 -->
- <-- トップ画面 モバイル版 -->
+###### 概要:飲食店予約アプリ。会員登録することで登録店舗の予約ができる。今回、会員の店舗に対する評価を見ることや自身が訪れた店舗の評価を投稿できる"口コミ機能"、店舗の並び順を変更できる"店舗一覧ソート機能"、新規の店舗情報をデータベースに追加できる"csvインポート機能"の3機能について開発を行った。
+PC版トップページ
+<img src="https://github.com/user-attachments/assets/32207f16-769c-413c-9e89-b903c5dcde9c" width="320px">
+モバイル版トップページ
+<img src="https://github.com/user-attachments/assets/c655a640-6e8d-4db3-908d-2dfbfd06bcca" width="150px">
 
 ## アプリケーションURL
 ###### 開発環境：http://localhost/
@@ -35,10 +37,10 @@
 ###### MailHog
 
 ## テーブル設計
-   <-- 作成したテーブル設計の画像 -->
+<img src="https://github.com/user-attachments/files/18149407/table_design.pdf" width="300px">
 
 ## ER図
-   <-- 作成したER図の画像 -->
+<img src="https://github.com/user-attachments/assets/839f5506-456d-436f-8402-42af5305e7dc" width="300px">
    
 ## 環境構築
 ######  1. git clone git@github.com:TsuneoHakoyama/Hakoyama_Pro-test.git
@@ -61,5 +63,5 @@
 ######      
 ###### 管理ユーザーとして利用
 ######      localhost/admin/logiにアクセスしadmin01@example.comでログイン。パスワードは"administrator"。
-######      店舗情報追加用のcsvファイルは以下のフォーマットで作成する。すべての項目が入力必須。店舗名は50文字以内。地域は"東京都"、"大阪府"、"福岡県"のいずれか、またジャンルは"寿司"、"焼肉"、"居酒屋"、"イタリアン"、"ラーメン"のいずれかから選択して記載。import用画像ファイルはstorage/app/public/imagesにある。
-<-- csvファイル -->
+######      店舗情報追加用のcsvファイルは以下のフォーマットで作成する。すべての項目が入力必須。店舗名は50文字以内。地域は"東京都"、"大阪府"、"福岡県"のいずれか、またジャンルは"寿司"、"焼肉"、"居酒屋"、"イタリアン"、"ラーメン"のいずれかから選択して記載。画像はjpegもしくはpng形式でファイル名を記載。
+<img src="https://github.com/user-attachments/files/18149409/Shop_info.pdf" width="300px>
