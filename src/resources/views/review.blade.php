@@ -114,7 +114,7 @@
                         @endif
                     </div>
                     <div class="input-text">
-                        <textarea contenteditable onkeyup="ShowLength(value);" name="comment" id="comment" rows="10" cols="40" maxlength="400">{{ optional($my_review)->comment }}</textarea>
+                        <textarea contenteditable onkeyup="ShowLength(value);" name="comment" id="comment" rows="10" cols="50">{{ optional($my_review)->comment }}</textarea>
                         <div class="text-counter">
                             <p id="inputlength">0</p>
                             <p>/400(最大文字数)</p>
@@ -122,6 +122,11 @@
                     </div>
                     <div class="title">
                         <h3>画像の追加</h3>
+                    </div>
+                    <div class="error-message">
+                        @if($errors->has('image'))
+                        {{ $errors->first('image') }}
+                        @endif
                     </div>
                     <div class="input-image">
                         <div class="image-card">

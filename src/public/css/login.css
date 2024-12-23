@@ -117,8 +117,7 @@
 /* ログインフォーム */
 .login-window {
     margin: 150px auto;
-    width: 500px;
-    height: 350px;
+    width: 40%;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 2px 2px 4px #666;
@@ -138,18 +137,14 @@
 
 .content {
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 10px;
     text-align: right;
-}
-
-.input-form {
-    display: grid;
-    text-align: center;
 }
 
 .error-message {
     color: #ff0000;
     font-size: 16px;
+    text-align: center;
 }
 
 .input__email {
@@ -182,8 +177,7 @@
 
 .submit-button {
     display: inline-block;
-    width: 35%;
-    padding: 20px;
+    width: 100%;
 }
 
 .login-btn {
@@ -196,11 +190,10 @@
 }
 
 /* Responsive design */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .login-window {
         margin: 20px auto;
         width: 80%;
-        height: 350px;
         background-color: #fff;
         border-radius: 5px;
         box-shadow: 2px 2px 4px #666;

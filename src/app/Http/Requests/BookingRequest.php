@@ -33,7 +33,7 @@ class BookingRequest extends FormRequest
     {
         return [
             'time.required' => '時刻を選択してください',
-            'people.required' => '人数を選択してください'
+            'number.required' => '人数を選択してください'
         ];
     }
 }

@@ -23,11 +23,6 @@ class AdministratorController extends Controller
 
     public function import(ImportRequest $request)
     {
-        dd($request->all());
-        $request->validate([
-            'csv_file' => 'required|file|mimes:csv,txt',
-            'image_file.*' => 'required|file|mimes:jpg,jpeg,png|max:2048',
-        ]);
 
         $imagePaths = [];
         $dir = 'images/shops';

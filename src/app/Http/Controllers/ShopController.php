@@ -18,9 +18,8 @@ class ShopController extends Controller
         $prefectures = Prefecture::all();
         $genres = Genre::all();
 
-        $query = Shop::query()->with(['genre', 'prefecture', 'favorites' => function ($query) {
-            $query->where('user_id', Auth::id());
-        }])->withAvg('reviews', 'rating');
+        $query = Shop::query()->with(['genre', 'prefecture', 'favorites'])
+                              ->withAvg('reviews', 'rating');
 
         $sort = $request->input('sort', 'random');
 
@@ -32,9 +31,11 @@ class ShopController extends Controller
             $query->inRandomOrder();
         }
 
-        $shops = $query->get();
+        $shops = $query->with(['favorites' => function($query) {
+            $query->where('user_id', Auth::id());
+        }])->get();
 
-        return view('index', compact('shops', 'sort', 'prefectures', 'genres'));
+        return view('index', compact('shops', 'prefectures', 'genres'));
     }
 
     public function search(Request $request)

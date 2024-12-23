@@ -24,8 +24,9 @@ class ImportRequest extends FormRequest
     public function rules()
     {
         return [
-            'csv_file' => ['required', 'file', 'mimes:csv,txt', 'max:1024'],
-            'image_file[]' => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'csv_file' => ['required', 'file', 'mimes:csv,txt'],
+            'image_files' => ['required', 'array'],
+            'image_files.*' => ['required', 'file', 'mimes:jpeg,png'],
         ];
     }
 
@@ -34,10 +35,8 @@ class ImportRequest extends FormRequest
         return [
             'csv_file.required' => 'csvファイルは必須です',
             'csv_file.mimes' => 'csv形式でアップロードしてください',
-            'csv_file.max' => 'ファイルサイズは1Mb以内にしてください',
-            'image_file.required' => '画像ファイルは必須です',
-            'image_file.mimes' => 'jpg. jpeg, pngのいずれかの形式でアップロードしてください',
-            'image_file.max' => 'ファイルサイズは2Mb以内にしてください',
+            'image_files.required' => '画像ファイルは必須です',
+            'image_files.*.mimes' => 'jpeg, pngのいずれかの形式でアップロードしてください',
         ];
     }
 

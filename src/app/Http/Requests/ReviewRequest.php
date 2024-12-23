@@ -25,7 +25,8 @@ class ReviewRequest extends FormRequest
     {
         return [
             'rating' => ['required'],
-            'comment' => ['required', 'max:400'],
+            'comment' => ['required', 'string', 'max:400'],
+            'image' => ['mimes:jpeg,png']
         ];
     }
 
@@ -34,7 +35,8 @@ class ReviewRequest extends FormRequest
         return [
             'rating.required' => '星の数を選択してください',
             'comment.required' => 'コメントを入力してください',
-            'comment.max' => 'コメントは400文字以内にしてください'
+            'comment.max' => 'コメントは400文字以内にしてください',
+            'image.mimes' => 'jpeg, pngのいずれかの形式でアップロードしてください'
         ];
     }
 }

@@ -147,7 +147,7 @@ body {
 
 .book-card {
     width: 100%;
-    margin: 20px 20px;
+    margin-top: 20px;
     background-color: #005fff;
     color: #fff;
     padding: 20px 10px 10px;
@@ -267,7 +267,6 @@ body {
 }
 
 .for-detail {
-    width: 60%;
     display: inline-block;
 }
 
@@ -300,4 +299,51 @@ body {
 .heart-active {
     font-size: 1.5em;
     color: #f00;
+}
+
+/*  Responsive design */
+@media screen and (max-width: 750px) {
+    .main-content {
+        width: 80%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .book-status {
+        width: 100%;
+        margin-top: 0;
+        background-color: #eee;
+        border: none;
+    }
+
+    .column-title {
+        margin: 20px 20px 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .my-favorite {
+        width: 100%;
+        background-color: #eee;
+    }
+
+    .user-name {
+        margin-top: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .list-title {
+           font-size: 20px;
+        font-weight: bold;
+    }
+
+    .grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+
 }

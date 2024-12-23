@@ -55,12 +55,19 @@
                         </div>
                         <div class="image-file">
                             <div class="error-message">
-                                @if($errors->has('image_file'))
-                                {{ $errors->first('image_file') }}
+                                @if($errors->has('image_files'))
+                                {{ $errors->first('image_files') }}
+                                @endif
+                                @if ($errors->has('image_files.*'))
+                                    @foreach ($errors->get('image_files.*') as $messages)
+                                    @foreach ($messages as $message)
+                                    {{ $message }}
+                                    @endforeach
+                                    @endforeach
                                 @endif
                             </div>
                             <label for="image">
-                                <input type="file" name="image_file[]" id="image" multiple>画像を選択する
+                                <input type="file" name="image_files[]" id="image" multiple>画像を選択する
                             </label>
                             <p id="upload-image">選択されていません</p>
                         </div>
