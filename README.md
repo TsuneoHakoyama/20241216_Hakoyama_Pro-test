@@ -46,7 +46,7 @@ PC版トップページ
    
 ## 環境構築
 ######  1. git clone git@github.com:TsuneoHakoyama/20241216_Hakoyama_Pro-test.git
-######  2. cd Hakoyama_Pro-test
+######  2. cd 20241216_Hakoyama_Pro-test
 ######  3. docker desktopの起動
 ######  4. docker compose up -d --build 
 ######  5. docker compose exec php bash
